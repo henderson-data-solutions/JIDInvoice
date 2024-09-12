@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82D43D30-2298-4458-8070-3F9BCBD11E4B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JIDInvoice</RootNamespace>
+    <AssemblyName>JIDInvoice</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44338</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="html\fonts\dripicons-v2.eot" />
+    <Content Include="html\fonts\dripicons-v2.ttf" />
+    <Content Include="html\fonts\dripicons-v2.woff" />
+    <Content Include="html\fonts\fa-brands-400.eot" />
+    <Content Include="html\fonts\fa-brands-400.ttf" />
+    <Content Include="html\fonts\fa-brands-400.woff" />
+    <Content Include="html\fonts\fa-brands-400.woff2" />
+    <Content Include="html\fonts\fa-regular-400.eot" />
+    <Content Include="html\fonts\fa-regular-400.ttf" />
+    <Content Include="html\fonts\fa-regular-400.woff" />
+    <Content Include="html\fonts\fa-regular-400.woff2" />
+    <Content Include="html\fonts\fa-solid-900.eot" />
+    <Content Include="html\fonts\fa-solid-900.ttf" />
+    <Content Include="html\fonts\fa-solid-900.woff" />
+    <Content Include="html\fonts\fa-solid-900.woff2" />
+    <Content Include="html\fonts\fontawesome-webfont.eot" />
+    <Content Include="html\fonts\fontawesome-webfont.ttf" />
+    <Content Include="html\fonts\fontawesome-webfont.woff" />
+    <Content Include="html\fonts\fontawesome-webfont.woff2" />
+    <Content Include="html\fonts\FontAwesome.otf" />
+    <Content Include="html\fonts\ionicons.eot" />
+    <Content Include="html\fonts\ionicons.ttf" />
+    <Content Include="html\fonts\ionicons.woff" />
+    <Content Include="html\fonts\la-brands-400.eot" />
+    <Content Include="html\fonts\la-brands-400.ttf" />
+    <Content Include="html\fonts\la-brands-400.woff" />
+    <Content Include="html\fonts\la-brands-400.woff2" />
+    <Content Include="html\fonts\la-regular-400.eot" />
+    <Content Include="html\fonts\la-regular-400.ttf" />
+    <Content Include="html\fonts\la-regular-400.woff" />
+    <Content Include="html\fonts\la-regular-400.woff2" />
+    <Content Include="html\fonts\la-solid-900.eot" />
+    <Content Include="html\fonts\la-solid-900.ttf" />
+    <Content Include="html\fonts\la-solid-900.woff" />
+    <Content Include="html\fonts\la-solid-900.woff2" />
+    <Content Include="html\fonts\remixicon.eot" />
+    <Content Include="html\fonts\remixicon.ttf" />
+    <Content Include="html\fonts\remixicon.woff" />
+    <Content Include="html\fonts\remixicon.woff2" />
+    <Content Include="html\fonts\slick.eot" />
+    <Content Include="html\fonts\slick.ttf" />
+    <Content Include="html\fonts\slick.woff" />
+    <Content Include="html\fullcalendar\bootstrap\package.json" />
+    <Content Include="html\fullcalendar\bootstrap\README.md" />
+    <Content Include="html\fullcalendar\core\package.json" />
+    <Content Include="html\fullcalendar\core\README.md" />
+    <Content Include="html\fullcalendar\daygrid\package.json" />
+    <Content Include="html\fullcalendar\daygrid\README.md" />
+    <Content Include="html\fullcalendar\google-calendar\package.json" />
+    <Content Include="html\fullcalendar\google-calendar\README.md" />
+    <Content Include="html\fullcalendar\interaction\package.json" />
+    <Content Include="html\fullcalendar\interaction\README.md" />
+    <Content Include="html\fullcalendar\list\package.json" />
+    <Content Include="html\fullcalendar\list\README.md" />
+    <Content Include="html\fullcalendar\luxon\package.json" />
+    <Content Include="html\fullcalendar\luxon\README.md" />
+    <Content Include="html\fullcalendar\moment-timezone\package.json" />
+    <Content Include="html\fullcalendar\moment-timezone\README.md" />
+    <Content Include="html\fullcalendar\moment\package.json" />
+    <Content Include="html\fullcalendar\moment\README.md" />
+    <Content Include="html\fullcalendar\rrule\package.json" />
+    <Content Include="html\fullcalendar\rrule\README.md" />
+    <Content Include="html\fullcalendar\timegrid\package.json" />
+    <Content Include="html\fullcalendar\timegrid\README.md" />
+    <Content Include="html\html\fonts\dripicons-v2.eot" />
+    <Content Include="html\html\fonts\dripicons-v2.ttf" />
+    <Content Include="html\html\fonts\dripicons-v2.woff" />
+    <Content Include="html\html\fonts\fa-brands-400.eot" />
+    <Content Include="html\html\fonts\fa-brands-400.ttf" />
+    <Content Include="html\html\fonts\fa-brands-400.woff" />
+    <Content Include="html\html\fonts\fa-brands-400.woff2" />
+    <Content Include="html\html\fonts\fa-regular-400.eot" />
+    <Content Include="html\html\fonts\fa-regular-400.ttf" />
+    <Content Include="html\html\fonts\fa-regular-400.woff" />
+    <Content Include="html\html\fonts\fa-regular-400.woff2" />
+    <Content Include="html\html\fonts\fa-solid-900.eot" />
+    <Content Include="html\html\fonts\fa-solid-900.ttf" />
+    <Content Include="html\html\fonts\fa-solid-900.woff" />
+    <Content Include="html\html\fonts\fa-solid-900.woff2" />
+    <Content Include="html\html\fonts\fontawesome-webfont.eot" />
+    <Content Include="html\html\fonts\fontawesome-webfont.ttf" />
+    <Content Include="html\html\fonts\fontawesome-webfont.woff" />
+    <Content Include="html\html\fonts\fontawesome-webfont.woff2" />
+    <Content Include="html\html\fonts\FontAwesome.otf" />
+    <Content Include="html\html\fonts\ionicons.eot" />
+    <Content Include="html\html\fonts\ionicons.ttf" />
+    <Content Include="html\html\fonts\ionicons.woff" />
+    <Content Include="html\html\fonts\la-brands-400.eot" />
+    <Content Include="html\html\fonts\la-brands-400.ttf" />
+    <Content Include="html\html\fonts\la-brands-400.woff" />
+    <Content Include="html\html\fonts\la-brands-400.woff2" />
+    <Content Include="html\html\fonts\la-regular-400.eot" />
+    <Content Include="html\html\fonts\la-regular-400.ttf" />
+    <Content Include="html\html\fonts\la-regular-400.woff" />
+    <Content Include="html\html\fonts\la-regular-400.woff2" />
+    <Content Include="html\html\fonts\la-solid-900.eot" />
+    <Content Include="html\html\fonts\la-solid-900.ttf" />
+    <Content Include="html\html\fonts\la-solid-900.woff" />
+    <Content Include="html\html\fonts\la-solid-900.woff2" />
+    <Content Include="html\html\fonts\remixicon.eot" />
+    <Content Include="html\html\fonts\remixicon.ttf" />
+    <Content Include="html\html\fonts\remixicon.woff" />
+    <Content Include="html\html\fonts\remixicon.woff2" />
+    <Content Include="html\html\fonts\slick.eot" />
+    <Content Include="html\html\fonts\slick.ttf" />
+    <Content Include="html\html\fonts\slick.woff" />
+    <Content Include="html\html\fullcalendar\bootstrap\package.json" />
+    <Content Include="html\html\fullcalendar\bootstrap\README.md" />
+    <Content Include="html\html\fullcalendar\core\package.json" />
+    <Content Include="html\html\fullcalendar\core\README.md" />
+    <Content Include="html\html\fullcalendar\daygrid\package.json" />
+    <Content Include="html\html\fullcalendar\daygrid\README.md" />
+    <Content Include="html\html\fullcalendar\google-calendar\package.json" />
+    <Content Include="html\html\fullcalendar\google-calendar\README.md" />
+    <Content Include="html\html\fullcalendar\interaction\package.json" />
+    <Content Include="html\html\fullcalendar\interaction\README.md" />
+    <Content Include="html\html\fullcalendar\list\package.json" />
+    <Content Include="html\html\fullcalendar\list\README.md" />
+    <Content Include="html\html\fullcalendar\luxon\package.json" />
+    <Content Include="html\html\fullcalendar\luxon\README.md" />
+    <Content Include="html\html\fullcalendar\moment-timezone\package.json" />
+    <Content Include="html\html\fullcalendar\moment-timezone\README.md" />
+    <Content Include="html\html\fullcalendar\moment\package.json" />
+    <Content Include="html\html\fullcalendar\moment\README.md" />
+    <Content Include="html\html\fullcalendar\rrule\package.json" />
+    <Content Include="html\html\fullcalendar\rrule\README.md" />
+    <Content Include="html\html\fullcalendar\timegrid\package.json" />
+    <Content Include="html\html\fullcalendar\timegrid\README.md" />
+    <Content Include="html\html\images\icon\expand-window.json" />
+    <Content Include="html\html\images\icon\open-letter.json" />
+    <Content Include="html\html\images\small\data.json" />
+    <Content Include="html\html\images\small\data1.json" />
+    <Content Include="html\html\images\small\data2.json" />
+    <Content Include="html\html\images\small\match-code.json" />
+    <Content Include="html\images\hds-favicon-1.png" />
+    <Content Include="html\images\icon\expand-window.json" />
+    <Content Include="html\images\icon\open-letter.json" />
+    <Content Include="html\images\small\data.json" />
+    <Content Include="html\images\small\data1.json" />
+    <Content Include="html\images\small\data2.json" />
+    <Content Include="html\images\small\match-code.json" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="html\account-setting.html" />
+    <Content Include="html\app\email-compose.html" />
+    <Content Include="html\app\index.html" />
+    <Content Include="html\birthday.html" />
+    <Content Include="html\blank-page.html" />
+    <Content Include="html\blog-detail.html" />
+    <Content Include="html\blog-grid.html" />
+    <Content Include="html\blog-list.html" />
+    <Content Include="html\calendar.html" />
+    <Content Include="html\chat.html" />
+    <Content Include="html\css\ajax-loader.gif" />
+    <Content Include="html\css\animate.css" />
+    <Content Include="html\css\bootstrap.min.css" />
+    <Content Include="html\css\Chart.min.css" />
+    <Content Include="html\css\developer.css" />
+    <Content Include="html\css\dripicons.css" />
+    <Content Include="html\css\flatpickr.min.css" />
+    <Content Include="html\css\fontawesome.css" />
+    <Content Include="html\css\ionicons.min.css" />
+    <Content Include="html\css\line-awesome.min.css" />
+    <Content Include="html\css\magnific-popup.css" />
+    <Content Include="html\css\owl.carousel.min.css" />
+    <Content Include="html\css\owl.video.play.png" />
+    <Content Include="html\css\remixicon.css" />
+    <Content Include="html\css\responsive.css" />
+    <Content Include="html\css\select2.min.css" />
+    <Content Include="html\css\slick-theme.css" />
+    <Content Include="html\css\slick.css" />
+    <Content Include="html\css\style.css" />
+    <Content Include="html\css\typography.css" />
+    <Content Include="html\css\variable.css" />
+    <Content Include="html\data-table.html" />
+    <Content Include="html\event-detail.html" />
+    <Content Include="html\file.html" />
+    <Content Include="html\fonts\dripicons-v2.svg" />
+    <Content Include="html\fonts\fa-brands-400.svg" />
+    <Content Include="html\fonts\fa-regular-400.svg" />
+    <Content Include="html\fonts\fa-solid-900.svg" />
+    <Content Include="html\fonts\fontawesome-webfont.svg" />
+    <Content Include="html\fonts\ionicons.svg" />
+    <Content Include="html\fonts\la-brands-400.svg" />
+    <Content Include="html\fonts\la-regular-400.svg" />
+    <Content Include="html\fonts\la-solid-900.svg" />
+    <Content Include="html\fonts\remixicon.svg" />
+    <Content Include="html\fonts\slick.svg" />
+    <Content Include="html\form-chechbox.html" />
+    <Content Include="html\form-layout.html" />
+    <Content Include="html\form-radio.html" />
+    <Content Include="html\form-switch.html" />
+    <Content Include="html\form-validation.html" />
+    <Content Include="html\form-wizard-validate.html" />
+    <Content Include="html\form-wizard-vertical.html" />
+    <Content Include="html\form-wizard.html" />
+    <Content Include="html\friend-list.html" />
+    <Content Include="html\friend-profile.html" />
+    <Content Include="html\friend-request.html" />
+    <Content Include="html\fullcalendar\bootstrap\LICENSE.txt" />
+    <Content Include="html\fullcalendar\bootstrap\main.css" />
+    <Content Include="html\fullcalendar\bootstrap\main.esm.js" />
+    <Content Include="html\fullcalendar\bootstrap\main.js" />
+    <Content Include="html\fullcalendar\bootstrap\main.min.css" />
+    <Content Include="html\fullcalendar\bootstrap\main.min.js" />
+    <Content Include="html\fullcalendar\core\LICENSE.txt" />
+    <Content Include="html\fullcalendar\core\locales-all.js" />
+    <Content Include="html\fullcalendar\core\locales-all.min.js" />
+    <Content Include="html\fullcalendar\core\locales\af.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-dz.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-kw.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-ly.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-ma.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-sa.js" />
+    <Content Include="html\fullcalendar\core\locales\ar-tn.js" />
+    <Content Include="html\fullcalendar\core\locales\ar.js" />
+    <Content Include="html\fullcalendar\core\locales\bg.js" />
+    <Content Include="html\fullcalendar\core\locales\bs.js" />
+    <Content Include="html\fullcalendar\core\locales\ca.js" />
+    <Content Include="html\fullcalendar\core\locales\cs.js" />
+    <Content Include="html\fullcalendar\core\locales\da.js" />
+    <Content Include="html\fullcalendar\core\locales\de.js" />
+    <Content Include="html\fullcalendar\core\locales\el.js" />
+    <Content Include="html\fullcalendar\core\locales\en-au.js" />
+    <Content Include="html\fullcalendar\core\locales\en-gb.js" />
+    <Content Include="html\fullcalendar\core\locales\en-nz.js" />
+    <Content Include="html\fullcalendar\core\locales\es-us.js" />
+    <Content Include="html\fullcalendar\core\locales\es.js" />
+    <Content Include="html\fullcalendar\core\locales\et.js" />
+    <Content Include="html\fullcalendar\core\locales\eu.js" />
+    <Content Include="html\fullcalendar\core\locales\fa.js" />
+    <Content Include="html\fullcalendar\core\locales\fi.js" />
+    <Content Include="html\fullcalendar\core\locales\fr-ca.js" />
+    <Content Include="html\fullcalendar\core\locales\fr-ch.js" />
+    <Content Include="html\fullcalendar\core\locales\fr.js" />
+    <Content Include="html\fullcalendar\core\locales\gl.js" />
+    <Content Include="html\fullcalendar\core\locales\he.js" />
+    <Content Include="html\fullcalendar\core\locales\hi.js" />
+    <Content Include="html\fullcalendar\core\locales\hr.js" />
+    <Content Include="html\fullcalendar\core\locales\hu.js" />
+    <Content Include="html\fullcalendar\core\locales\id.js" />
+    <Content Include="html\fullcalendar\core\locales\is.js" />
+    <Content Include="html\fullcalendar\core\locales\it.js" />
+    <Content Include="html\fullcalendar\core\locales\ja.js" />
+    <Content Include="html\fullcalendar\core\locales\ka.js" />
+    <Content Include="html\fullcalendar\core\locales\kk.js" />
+    <Content Include="html\fullcalendar\core\locales\ko.js" />
+    <Content Include="html\fullcalendar\core\locales\lb.js" />
+    <Content Include="html\fullcalendar\core\locales\lt.js" />
+    <Content Include="html\fullcalendar\core\locales\lv.js" />
+    <Content Include="html\fullcalendar\core\locales\mk.js" />
+    <Content Include="html\fullcalendar\core\locales\ms.js" />
+    <Content Include="html\fullcalendar\core\locales\nb.js" />
+    <Content Include="html\fullcalendar\core\locales\nl.js" />
+    <Content Include="html\fullcalendar\core\locales\nn.js" />
+    <Content Include="html\fullcalendar\core\locales\pl.js" />
+    <Content Include="html\fullcalendar\core\locales\pt-br.js" />
+    <Content Include="html\fullcalendar\core\locales\pt.js" />
+    <Content Include="html\fullcalendar\core\locales\ro.js" />
+    <Content Include="html\fullcalendar\core\locales\ru.js" />
+    <Content Include="html\fullcalendar\core\locales\sk.js" />
+    <Content Include="html\fullcalendar\core\locales\sl.js" />
+    <Content Include="html\fullcalendar\core\locales\sq.js" />
+    <Content Include="html\fullcalendar\core\locales\sr-cyrl.js" />
+    <Content Include="html\fullcalendar\core\locales\sr.js" />
+    <Content Include="html\fullcalendar\core\locales\sv.js" />
+    <Content Include="html\fullcalendar\core\locales\th.js" />
+    <Content Include="html\fullcalendar\core\locales\tr.js" />
+    <Content Include="html\fullcalendar\core\locales\uk.js" />
+    <Content Include="html\fullcalendar\core\locales\vi.js" />
+    <Content Include="html\fullcalendar\core\locales\zh-cn.js" />
+    <Content Include="html\fullcalendar\core\locales\zh-tw.js" />
+    <Content Include="html\fullcalendar\core\main.css" />
+    <Content Include="html\fullcalendar\core\main.esm.js" />
+    <Content Include="html\fullcalendar\core\main.js" />
+    <Content Include="html\fullcalendar\core\main.min.css" />
+    <Content Include="html\fullcalendar\core\main.min.js" />
+    <Content Include="html\fullcalendar\daygrid\LICENSE.txt" />
+    <Content Include="html\fullcalendar\daygrid\main.css" />
+    <Content Include="html\fullcalendar\daygrid\main.esm.js" />
+    <Content Include="html\fullcalendar\daygrid\main.js" />
+    <Content Include="html\fullcalendar\daygrid\main.min.css" />
+    <Content Include="html\fullcalendar\daygrid\main.min.js" />
+    <Content Include="html\fullcalendar\google-calendar\LICENSE.txt" />
+    <Content Include="html\fullcalendar\google-calendar\main.esm.js" />
+    <Content Include="html\fullcalendar\google-calendar\main.js" />
+    <Content Include="html\fullcalendar\google-calendar\main.min.js" />
+    <Content Include="html\fullcalendar\interaction\LICENSE.txt" />
+    <Content Include="html\fullcalendar\interaction\main.esm.js" />
+    <Content Include="html\fullcalendar\interaction\main.js" />
+    <Content Include="html\fullcalendar\interaction\main.min.js" />
+    <Content Include="html\fullcalendar\list\LICENSE.txt" />
+    <Content Include="html\fullcalendar\list\main.css" />
+    <Content Include="html\fullcalendar\list\main.esm.js" />
+    <Content Include="html\fullcalendar\list\main.js" />
+    <Content Include="html\fullcalendar\list\main.min.css" />
+    <Content Include="html\fullcalendar\list\main.min.js" />
+    <Content Include="html\fullcalendar\luxon\LICENSE.txt" />
+    <Content Include="html\fullcalendar\luxon\main.esm.js" />
+    <Content Include="html\fullcalendar\luxon\main.js" />
+    <Content Include="html\fullcalendar\luxon\main.min.js" />
+    <Content Include="html\fullcalendar\moment-timezone\LICENSE.txt" />
+    <Content Include="html\fullcalendar\moment-timezone\main.esm.js" />
+    <Content Include="html\fullcalendar\moment-timezone\main.js" />
+    <Content Include="html\fullcalendar\moment-timezone\main.min.js" />
+    <Content Include="html\fullcalendar\moment\LICENSE.txt" />
+    <Content Include="html\fullcalendar\moment\main.esm.js" />
+    <Content Include="html\fullcalendar\moment\main.js" />
+    <Content Include="html\fullcalendar\moment\main.min.js" />
+    <Content Include="html\fullcalendar\rrule\LICENSE.txt" />
+    <Content Include="html\fullcalendar\rrule\main.esm.js" />
+    <Content Include="html\fullcalendar\rrule\main.js" />
+    <Content Include="html\fullcalendar\rrule\main.min.js" />
+    <Content Include="html\fullcalendar\timegrid\LICENSE.txt" />
+    <Content Include="html\fullcalendar\timegrid\main.css" />
+    <Content Include="html\fullcalendar\timegrid\main.esm.js" />
+    <Content Include="html\fullcalendar\timegrid\main.js" />
+    <Content Include="html\fullcalendar\timegrid\main.min.css" />
+    <Content Include="html\fullcalendar\timegrid\main.min.js" />
+    <Content Include="html\group-detail.html" />
+    <Content Include="html\group.html" />
+    <Content Include="html\html\account-setting.html" />
+    <Content Include="html\html\app\email-compose.html" />
+    <Content Include="html\html\app\index.html" />
+    <Content Include="html\html\birthday.html" />
+    <Content Include="html\html\blank-page.html" />
+    <Content Include="html\html\blog-detail.html" />
+    <Content Include="html\html\blog-grid.html" />
+    <Content Include="html\html\blog-list.html" />
+    <Content Include="html\html\calendar.html" />
+    <Content Include="html\html\chat.html" />
+    <Content Include="html\html\css\ajax-loader.gif" />
+    <Content Include="html\html\css\animate.css" />
+    <Content Include="html\html\css\bootstrap.min.css" />
+    <Content Include="html\html\css\Chart.min.css" />
+    <Content Include="html\html\css\developer.css" />
+    <Content Include="html\html\css\dripicons.css" />
+    <Content Include="html\html\css\flatpickr.min.css" />
+    <Content Include="html\html\css\fontawesome.css" />
+    <Content Include="html\html\css\ionicons.min.css" />
+    <Content Include="html\html\css\line-awesome.min.css" />
+    <Content Include="html\html\css\magnific-popup.css" />
+    <Content Include="html\html\css\owl.carousel.min.css" />
+    <Content Include="html\html\css\owl.video.play.png" />
+    <Content Include="html\html\css\remixicon.css" />
+    <Content Include="html\html\css\responsive.css" />
+    <Content Include="html\html\css\select2.min.css" />
+    <Content Include="html\html\css\slick-theme.css" />
+    <Content Include="html\html\css\slick.css" />
+    <Content Include="html\html\css\style.css" />
+    <Content Include="html\html\css\typography.css" />
+    <Content Include="html\html\css\variable.css" />
+    <Content Include="html\html\data-table.html" />
+    <Content Include="html\html\event-detail.html" />
+    <Content Include="html\html\file.html" />
+    <Content Include="html\html\fonts\dripicons-v2.svg" />
+    <Content Include="html\html\fonts\fa-brands-400.svg" />
+    <Content Include="html\html\fonts\fa-regular-400.svg" />
+    <Content Include="html\html\fonts\fa-solid-900.svg" />
+    <Content Include="html\html\fonts\fontawesome-webfont.svg" />
+    <Content Include="html\html\fonts\ionicons.svg" />
+    <Content Include="html\html\fonts\la-brands-400.svg" />
+    <Content Include="html\html\fonts\la-regular-400.svg" />
+    <Content Include="html\html\fonts\la-solid-900.svg" />
+    <Content Include="html\html\fonts\remixicon.svg" />
+    <Content Include="html\html\fonts\slick.svg" />
+    <Content Include="html\html\form-chechbox.html" />
+    <Content Include="html\html\form-layout.html" />
+    <Content Include="html\html\form-radio.html" />
+    <Content Include="html\html\form-switch.html" />
+    <Content Include="html\html\form-validation.html" />
+    <Content Include="html\html\form-wizard-validate.html" />
+    <Content Include="html\html\form-wizard-vertical.html" />
+    <Content Include="html\html\form-wizard.html" />
+    <Content Include="html\html\friend-list.html" />
+    <Content Include="html\html\friend-profile.html" />
+    <Content Include="html\html\friend-request.html" />
+    <Content Include="html\html\fullcalendar\bootstrap\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\bootstrap\main.css" />
+    <Content Include="html\html\fullcalendar\bootstrap\main.esm.js" />
+    <Content Include="html\html\fullcalendar\bootstrap\main.js" />
+    <Content Include="html\html\fullcalendar\bootstrap\main.min.css" />
+    <Content Include="html\html\fullcalendar\bootstrap\main.min.js" />
+    <Content Include="html\html\fullcalendar\core\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\core\locales-all.js" />
+    <Content Include="html\html\fullcalendar\core\locales-all.min.js" />
+    <Content Include="html\html\fullcalendar\core\locales\af.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-dz.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-kw.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-ly.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-ma.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-sa.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar-tn.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ar.js" />
+    <Content Include="html\html\fullcalendar\core\locales\bg.js" />
+    <Content Include="html\html\fullcalendar\core\locales\bs.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ca.js" />
+    <Content Include="html\html\fullcalendar\core\locales\cs.js" />
+    <Content Include="html\html\fullcalendar\core\locales\da.js" />
+    <Content Include="html\html\fullcalendar\core\locales\de.js" />
+    <Content Include="html\html\fullcalendar\core\locales\el.js" />
+    <Content Include="html\html\fullcalendar\core\locales\en-au.js" />
+    <Content Include="html\html\fullcalendar\core\locales\en-gb.js" />
+    <Content Include="html\html\fullcalendar\core\locales\en-nz.js" />
+    <Content Include="html\html\fullcalendar\core\locales\es-us.js" />
+    <Content Include="html\html\fullcalendar\core\locales\es.js" />
+    <Content Include="html\html\fullcalendar\core\locales\et.js" />
+    <Content Include="html\html\fullcalendar\core\locales\eu.js" />
+    <Content Include="html\html\fullcalendar\core\locales\fa.js" />
+    <Content Include="html\html\fullcalendar\core\locales\fi.js" />
+    <Content Include="html\html\fullcalendar\core\locales\fr-ca.js" />
+    <Content Include="html\html\fullcalendar\core\locales\fr-ch.js" />
+    <Content Include="html\html\fullcalendar\core\locales\fr.js" />
+    <Content Include="html\html\fullcalendar\core\locales\gl.js" />
+    <Content Include="html\html\fullcalendar\core\locales\he.js" />
+    <Content Include="html\html\fullcalendar\core\locales\hi.js" />
+    <Content Include="html\html\fullcalendar\core\locales\hr.js" />
+    <Content Include="html\html\fullcalendar\core\locales\hu.js" />
+    <Content Include="html\html\fullcalendar\core\locales\id.js" />
+    <Content Include="html\html\fullcalendar\core\locales\is.js" />
+    <Content Include="html\html\fullcalendar\core\locales\it.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ja.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ka.js" />
+    <Content Include="html\html\fullcalendar\core\locales\kk.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ko.js" />
+    <Content Include="html\html\fullcalendar\core\locales\lb.js" />
+    <Content Include="html\html\fullcalendar\core\locales\lt.js" />
+    <Content Include="html\html\fullcalendar\core\locales\lv.js" />
+    <Content Include="html\html\fullcalendar\core\locales\mk.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ms.js" />
+    <Content Include="html\html\fullcalendar\core\locales\nb.js" />
+    <Content Include="html\html\fullcalendar\core\locales\nl.js" />
+    <Content Include="html\html\fullcalendar\core\locales\nn.js" />
+    <Content Include="html\html\fullcalendar\core\locales\pl.js" />
+    <Content Include="html\html\fullcalendar\core\locales\pt-br.js" />
+    <Content Include="html\html\fullcalendar\core\locales\pt.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ro.js" />
+    <Content Include="html\html\fullcalendar\core\locales\ru.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sk.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sl.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sq.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sr-cyrl.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sr.js" />
+    <Content Include="html\html\fullcalendar\core\locales\sv.js" />
+    <Content Include="html\html\fullcalendar\core\locales\th.js" />
+    <Content Include="html\html\fullcalendar\core\locales\tr.js" />
+    <Content Include="html\html\fullcalendar\core\locales\uk.js" />
+    <Content Include="html\html\fullcalendar\core\locales\vi.js" />
+    <Content Include="html\html\fullcalendar\core\locales\zh-cn.js" />
+    <Content Include="html\html\fullcalendar\core\locales\zh-tw.js" />
+    <Content Include="html\html\fullcalendar\core\main.css" />
+    <Content Include="html\html\fullcalendar\core\main.esm.js" />
+    <Content Include="html\html\fullcalendar\core\main.js" />
+    <Content Include="html\html\fullcalendar\core\main.min.css" />
+    <Content Include="html\html\fullcalendar\core\main.min.js" />
+    <Content Include="html\html\fullcalendar\daygrid\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\daygrid\main.css" />
+    <Content Include="html\html\fullcalendar\daygrid\main.esm.js" />
+    <Content Include="html\html\fullcalendar\daygrid\main.js" />
+    <Content Include="html\html\fullcalendar\daygrid\main.min.css" />
+    <Content Include="html\html\fullcalendar\daygrid\main.min.js" />
+    <Content Include="html\html\fullcalendar\google-calendar\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\google-calendar\main.esm.js" />
+    <Content Include="html\html\fullcalendar\google-calendar\main.js" />
+    <Content Include="html\html\fullcalendar\google-calendar\main.min.js" />
+    <Content Include="html\html\fullcalendar\interaction\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\interaction\main.esm.js" />
+    <Content Include="html\html\fullcalendar\interaction\main.js" />
+    <Content Include="html\html\fullcalendar\interaction\main.min.js" />
+    <Content Include="html\html\fullcalendar\list\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\list\main.css" />
+    <Content Include="html\html\fullcalendar\list\main.esm.js" />
+    <Content Include="html\html\fullcalendar\list\main.js" />
+    <Content Include="html\html\fullcalendar\list\main.min.css" />
+    <Content Include="html\html\fullcalendar\list\main.min.js" />
+    <Content Include="html\html\fullcalendar\luxon\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\luxon\main.esm.js" />
+    <Content Include="html\html\fullcalendar\luxon\main.js" />
+    <Content Include="html\html\fullcalendar\luxon\main.min.js" />
+    <Content Include="html\html\fullcalendar\moment-timezone\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\moment-timezone\main.esm.js" />
+    <Content Include="html\html\fullcalendar\moment-timezone\main.js" />
+    <Content Include="html\html\fullcalendar\moment-timezone\main.min.js" />
+    <Content Include="html\html\fullcalendar\moment\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\moment\main.esm.js" />
+    <Content Include="html\html\fullcalendar\moment\main.js" />
+    <Content Include="html\html\fullcalendar\moment\main.min.js" />
+    <Content Include="html\html\fullcalendar\rrule\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\rrule\main.esm.js" />
+    <Content Include="html\html\fullcalendar\rrule\main.js" />
+    <Content Include="html\html\fullcalendar\rrule\main.min.js" />
+    <Content Include="html\html\fullcalendar\timegrid\LICENSE.txt" />
+    <Content Include="html\html\fullcalendar\timegrid\main.css" />
+    <Content Include="html\html\fullcalendar\timegrid\main.esm.js" />
+    <Content Include="html\html\fullcalendar\timegrid\main.js" />
+    <Content Include="html\html\fullcalendar\timegrid\main.min.css" />
+    <Content Include="html\html\fullcalendar\timegrid\main.min.js" />
+    <Content Include="html\html\group-detail.html" />
+    <Content Include="html\html\group.html" />
+    <Content Include="html\html\icon-dripicons.html" />
+    <Content Include="html\html\icon-fontawesome-5.html" />
+    <Content Include="html\html\icon-lineawesome.html" />
+    <Content Include="html\html\icon-remixicon.html" />
+    <Content Include="html\html\icon-unicons.html" />
+    <Content Include="html\html\images\badges\01.png" />
+    <Content Include="html\html\images\badges\02.png" />
+    <Content Include="html\html\images\badges\03.png" />
+    <Content Include="html\html\images\badges\04.png" />
+    <Content Include="html\html\images\badges\05.png" />
+    <Content Include="html\html\images\badges\06.png" />
+    <Content Include="html\html\images\badges\07.png" />
+    <Content Include="html\html\images\badges\08.png" />
+    <Content Include="html\html\images\badges\09.png" />
+    <Content Include="html\html\images\badges\10.png" />
+    <Content Include="html\html\images\badges\11.png" />
+    <Content Include="html\html\images\badges\12.png" />
+    <Content Include="html\html\images\blog\01.jpg" />
+    <Content Include="html\html\images\blog\02.jpg" />
+    <Content Include="html\html\images\blog\03.jpg" />
+    <Content Include="html\html\images\blog\04.jpg" />
+    <Content Include="html\html\images\blog\05.jpg" />
+    <Content Include="html\html\images\blog\06.jpg" />
+    <Content Include="html\html\images\blog\07.jpg" />
+    <Content Include="html\html\images\blog\08.jpg" />
+    <Content Include="html\html\images\blog\b1.jpg" />
+    <Content Include="html\html\images\blog\b2.jpg" />
+    <Content Include="html\html\images\blog\b3.jpg" />
+    <Content Include="html\html\images\blog\b4.jpg" />
+    <Content Include="html\html\images\blog\b5.jpg" />
+    <Content Include="html\html\images\error\01.png" />
+    <Content Include="html\html\images\error\02.png" />
+    <Content Include="html\html\images\favicon.ico" />
+    <Content Include="html\html\images\icon\01.png" />
+    <Content Include="html\html\images\icon\02.png" />
+    <Content Include="html\html\images\icon\03.png" />
+    <Content Include="html\html\images\icon\04.png" />
+    <Content Include="html\html\images\icon\05.png" />
+    <Content Include="html\html\images\icon\06.png" />
+    <Content Include="html\html\images\icon\07.png" />
+    <Content Include="html\html\images\icon\08.png" />
+    <Content Include="html\html\images\icon\09.png" />
+    <Content Include="html\html\images\icon\10.png" />
+    <Content Include="html\html\images\icon\11.png" />
+    <Content Include="html\html\images\icon\12.png" />
+    <Content Include="html\html\images\icon\13.png" />
+    <Content Include="html\html\images\icon\cart.png" />
+    <Content Include="html\html\images\icon\entire-page.png" />
+    <Content Include="html\html\images\loader.png" />
+    <Content Include="html\html\images\login\1.png" />
+    <Content Include="html\html\images\login\2.png" />
+    <Content Include="html\html\images\login\3.png" />
+    <Content Include="html\html\images\login\mail.png" />
+    <Content Include="html\html\images\logo-full.png" />
+    <Content Include="html\html\images\logo-full2.png" />
+    <Content Include="html\html\images\logo-white.png" />
+    <Content Include="html\html\images\logo.png" />
+    <Content Include="html\html\images\page-img\01.jpg" />
+    <Content Include="html\html\images\page-img\02.jpg" />
+    <Content Include="html\html\images\page-img\03.jpg" />
+    <Content Include="html\html\images\page-img\06.jpg" />
+    <Content Include="html\html\images\page-img\07.jpg" />
+    <Content Include="html\html\images\page-img\08.jpg" />
+    <Content Include="html\html\images\page-img\09.jpg" />
+    <Content Include="html\html\images\page-img\10.jpg" />
+    <Content Include="html\html\images\page-img\100.jpg" />
+    <Content Include="html\html\images\page-img\11.jpg" />
+    <Content Include="html\html\images\page-img\12.jpg" />
+    <Content Include="html\html\images\page-img\13.jpg" />
+    <Content Include="html\html\images\page-img\14.jpg" />
+    <Content Include="html\html\images\page-img\15.jpg" />
+    <Content Include="html\html\images\page-img\16.jpg" />
+    <Content Include="html\html\images\page-img\17.jpg" />
+    <Content Include="html\html\images\page-img\18.jpg" />
+    <Content Include="html\html\images\page-img\19.jpg" />
+    <Content Include="html\html\images\page-img\20.jpg" />
+    <Content Include="html\html\images\page-img\21.jpg" />
+    <Content Include="html\html\images\page-img\22.jpg" />
+    <Content Include="html\html\images\page-img\23.jpg" />
+    <Content Include="html\html\images\page-img\24.jpg" />
+    <Content Include="html\html\images\page-img\25.jpg" />
+    <Content Include="html\html\images\page-img\26.jpg" />
+    <Content Include="html\html\images\page-img\27.jpg" />
+    <Content Include="html\html\images\page-img\28.jpg" />
+    <Content Include="html\html\images\page-img\42.png" />
+    <Content Include="html\html\images\page-img\43.png" />
+    <Content Include="html\html\images\page-img\44.png" />
+    <Content Include="html\html\images\page-img\45.png" />
+    <Content Include="html\html\images\page-img\46.png" />
+    <Content Include="html\html\images\page-img\47.png" />
+    <Content Include="html\html\images\page-img\48.jpg" />
+    <Content Include="html\html\images\page-img\51.jpg" />
+    <Content Include="html\html\images\page-img\52.jpg" />
+    <Content Include="html\html\images\page-img\53.jpg" />
+    <Content Include="html\html\images\page-img\54.jpg" />
+    <Content Include="html\html\images\page-img\55.jpg" />
+    <Content Include="html\html\images\page-img\56.jpg" />
+    <Content Include="html\html\images\page-img\57.jpg" />
+    <Content Include="html\html\images\page-img\58.jpg" />
+    <Content Include="html\html\images\page-img\59.jpg" />
+    <Content Include="html\html\images\page-img\60.jpg" />
+    <Content Include="html\html\images\page-img\61.jpg" />
+    <Content Include="html\html\images\page-img\62.jpg" />
+    <Content Include="html\html\images\page-img\63.jpg" />
+    <Content Include="html\html\images\page-img\64.jpg" />
+    <Content Include="html\html\images\page-img\65.jpg" />
+    <Content Include="html\html\images\page-img\g1.jpg" />
+    <Content Include="html\html\images\page-img\g2.jpg" />
+    <Content Include="html\html\images\page-img\g3.jpg" />
+    <Content Include="html\html\images\page-img\g4.jpg" />
+    <Content Include="html\html\images\page-img\g5.jpg" />
+    <Content Include="html\html\images\page-img\g6.jpg" />
+    <Content Include="html\html\images\page-img\g7.jpg" />
+    <Content Include="html\html\images\page-img\g8.jpg" />
+    <Content Include="html\html\images\page-img\g9.jpg" />
+    <Content Include="html\html\images\page-img\gi-1.jpg" />
+    <Content Include="html\html\images\page-img\gi-2.jpg" />
+    <Content Include="html\html\images\page-img\gi-3.jpg" />
+    <Content Include="html\html\images\page-img\gi-4.jpg" />
+    <Content Include="html\html\images\page-img\gi-5.jpg" />
+    <Content Include="html\html\images\page-img\gi-6.jpg" />
+    <Content Include="html\html\images\page-img\gi-7.jpg" />
+    <Content Include="html\html\images\page-img\gi-8.jpg" />
+    <Content Include="html\html\images\page-img\gi-9.jpg" />
+    <Content Include="html\html\images\page-img\img-success.png" />
+    <Content Include="html\html\images\page-img\l1.jpg" />
+    <Content Include="html\html\images\page-img\l2.jpg" />
+    <Content Include="html\html\images\page-img\l3.jpg" />
+    <Content Include="html\html\images\page-img\l4.jpg" />
+    <Content Include="html\html\images\page-img\l5.jpg" />
+    <Content Include="html\html\images\page-img\l6.jpg" />
+    <Content Include="html\html\images\page-img\man.svg" />
+    <Content Include="html\html\images\page-img\n1.jpg" />
+    <Content Include="html\html\images\page-img\n2.jpg" />
+    <Content Include="html\html\images\page-img\n3.jpg" />
+    <Content Include="html\html\images\page-img\n4.jpg" />
+    <Content Include="html\html\images\page-img\n5.jpg" />
+    <Content Include="html\html\images\page-img\n6.jpg" />
+    <Content Include="html\html\images\page-img\n7.jpg" />
+    <Content Include="html\html\images\page-img\n8.jpg" />
+    <Content Include="html\html\images\page-img\p1.jpg" />
+    <Content Include="html\html\images\page-img\p2.jpg" />
+    <Content Include="html\html\images\page-img\p3.jpg" />
+    <Content Include="html\html\images\page-img\p4.jpg" />
+    <Content Include="html\html\images\page-img\p5.jpg" />
+    <Content Include="html\html\images\page-img\page-load-loader.gif" />
+    <Content Include="html\html\images\page-img\profile-bg1.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg2.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg3.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg4.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg5.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg6.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg7.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg8.jpg" />
+    <Content Include="html\html\images\page-img\profile-bg9.jpg" />
+    <Content Include="html\html\images\page-img\r1.jpg" />
+    <Content Include="html\html\images\page-img\r2.jpg" />
+    <Content Include="html\html\images\page-img\r3.jpg" />
+    <Content Include="html\html\images\page-img\r4.jpg" />
+    <Content Include="html\html\images\page-img\r5.jpg" />
+    <Content Include="html\html\images\page-img\r6.jpg" />
+    <Content Include="html\html\images\page-img\r7.jpg" />
+    <Content Include="html\html\images\page-img\r8.jpg" />
+    <Content Include="html\html\images\page-img\s1.jpg" />
+    <Content Include="html\html\images\page-img\s2.jpg" />
+    <Content Include="html\html\images\page-img\s3.jpg" />
+    <Content Include="html\html\images\page-img\s4.jpg" />
+    <Content Include="html\html\images\page-img\s5.jpg" />
+    <Content Include="html\html\images\page-img\tag_blue.svg" />
+    <Content Include="html\html\images\page-img\tag_red.svg" />
+    <Content Include="html\html\images\small\04.svg" />
+    <Content Include="html\html\images\small\05.svg" />
+    <Content Include="html\html\images\small\07.png" />
+    <Content Include="html\html\images\small\08.png" />
+    <Content Include="html\html\images\small\09.png" />
+    <Content Include="html\html\images\small\10.png" />
+    <Content Include="html\html\images\small\11.png" />
+    <Content Include="html\html\images\small\12.png" />
+    <Content Include="html\html\images\small\13.png" />
+    <Content Include="html\html\images\small\14.png" />
+    <Content Include="html\html\images\small\flag-01.png" />
+    <Content Include="html\html\images\small\flag-02.png" />
+    <Content Include="html\html\images\small\flag-03.png" />
+    <Content Include="html\html\images\small\flag-04.png" />
+    <Content Include="html\html\images\small\flag-05.png" />
+    <Content Include="html\html\images\small\flag-06.png" />
+    <Content Include="html\html\images\small\img-1.jpg" />
+    <Content Include="html\html\images\small\img-2.jpg" />
+    <Content Include="html\html\images\small\jpg.svg" />
+    <Content Include="html\html\images\small\xml.svg" />
+    <Content Include="html\html\images\small\zip.svg" />
+    <Content Include="html\html\images\store\01.jpg" />
+    <Content Include="html\html\images\store\02.jpg" />
+    <Content Include="html\html\images\store\03.jpg" />
+    <Content Include="html\html\images\store\04.jpg" />
+    <Content Include="html\html\images\store\05.jpg" />
+    <Content Include="html\html\images\store\06.jpg" />
+    <Content Include="html\html\images\store\07.jpg" />
+    <Content Include="html\html\images\store\08.jpg" />
+    <Content Include="html\html\images\store\09.jpg" />
+    <Content Include="html\html\images\store\10.jpg" />
+    <Content Include="html\html\images\store\11.jpg" />
+    <Content Include="html\html\images\store\12.jpg" />
+    <Content Include="html\html\images\store\13.jpg" />
+    <Content Include="html\html\images\store\14.jpg" />
+    <Content Include="html\html\images\store\c1.jpg" />
+    <Content Include="html\html\images\store\c2.jpg" />
+    <Content Include="html\html\images\store\c3.jpg" />
+    <Content Include="html\html\images\store\c4.jpg" />
+    <Content Include="html\html\images\store\c5.jpg" />
+    <Content Include="html\html\images\user\01.jpg" />
+    <Content Include="html\html\images\user\02.jpg" />
+    <Content Include="html\html\images\user\03.jpg" />
+    <Content Include="html\html\images\user\04.jpg" />
+    <Content Include="html\html\images\user\05.jpg" />
+    <Content Include="html\html\images\user\06.jpg" />
+    <Content Include="html\html\images\user\07.jpg" />
+    <Content Include="html\html\images\user\08.jpg" />
+    <Content Include="html\html\images\user\09.jpg" />
+    <Content Include="html\html\images\user\1.jpg" />
+    <Content Include="html\html\images\user\10.jpg" />
+    <Content Include="html\html\images\user\11.jpg" />
+    <Content Include="html\html\images\user\11.png" />
+    <Content Include="html\html\images\user\12.jpg" />
+    <Content Include="html\html\images\user\13.jpg" />
+    <Content Include="html\html\images\user\14.jpg" />
+    <Content Include="html\html\images\user\15.jpg" />
+    <Content Include="html\html\images\user\16.jpg" />
+    <Content Include="html\html\images\user\17.jpg" />
+    <Content Include="html\html\images\user\18.jpg" />
+    <Content Include="html\html\images\user\19.jpg" />
+    <Content Include="html\html\images\user\4.jpg" />
+    <Content Include="html\html\images\user\user-1.jpg" />
+    <Content Include="html\html\images\user\user-2.jpg" />
+    <Content Include="html\html\images\user\user-3.jpg" />
+    <Content Include="html\html\images\user\user-4.jpg" />
+    <Content Include="html\html\images\user\user-5.jpg" />
+    <Content Include="html\html\images\user\user-6.jpg" />
+    <Content Include="html\html\index.html" />
+    <Content Include="html\html\js\animated.js" />
+    <Content Include="html\html\js\apexcharts.js" />
+    <Content Include="html\html\js\bodymovin.js" />
+    <Content Include="html\html\js\bootstrap.min.js" />
+    <Content Include="html\html\js\chart-custom.js" />
+    <Content Include="html\html\js\charts.js" />
+    <Content Include="html\html\js\core.js" />
+    <Content Include="html\html\js\countdown.min.js" />
+    <Content Include="html\html\js\custom.js" />
+    <Content Include="html\html\js\flatpickr.js" />
+    <Content Include="html\html\js\jquery-3.3.1.min.js" />
+    <Content Include="html\html\js\jquery.appear.js" />
+    <Content Include="html\html\js\jquery.counterup.min.js" />
+    <Content Include="html\html\js\jquery.magnific-popup.min.js" />
+    <Content Include="html\html\js\jquery.min.js" />
+    <Content Include="html\html\js\kelly.js" />
+    <Content Include="html\html\js\lottie.js" />
+    <Content Include="html\html\js\maps.js" />
+    <Content Include="html\html\js\owl.carousel.min.js" />
+    <Content Include="html\html\js\popper.min.js" />
+    <Content Include="html\html\js\raphael-min.js" />
+    <Content Include="html\html\js\select2.min.js" />
+    <Content Include="html\html\js\slick.min.js" />
+    <Content Include="html\html\js\smooth-scrollbar.js" />
+    <Content Include="html\html\js\waypoints.min.js" />
+    <Content Include="html\html\js\worldHigh.js" />
+    <Content Include="html\html\js\worldLow.js" />
+    <Content Include="html\html\js\wow.min.js" />
+    <Content Include="html\html\music.html" />
+    <Content Include="html\html\notification.html" />
+    <Content Include="html\html\pages-comingsoon.html" />
+    <Content Include="html\html\pages-confirm-mail.html" />
+    <Content Include="html\html\pages-error-500.html" />
+    <Content Include="html\html\pages-error.html" />
+    <Content Include="html\html\pages-faq.html" />
+    <Content Include="html\html\pages-invoice.html" />
+    <Content Include="html\html\pages-lock-screen.html" />
+    <Content Include="html\html\pages-maintenance.html" />
+    <Content Include="html\html\pages-pricing-one.html" />
+    <Content Include="html\html\pages-pricing.html" />
+    <Content Include="html\html\pages-recoverpw.html" />
+    <Content Include="html\html\pages-timeline.html" />
+    <Content Include="html\html\privacy-policy.html" />
+    <Content Include="html\html\privacy-setting.html" />
+    <Content Include="html\html\profile-badges.html" />
+    <Content Include="html\html\profile-edit.html" />
+    <Content Include="html\html\profile-event.html" />
+    <Content Include="html\html\profile-forum.html" />
+    <Content Include="html\html\profile-images.html" />
+    <Content Include="html\html\profile-video.html" />
+    <Content Include="html\html\profile.html" />
+    <Content Include="html\html\sign-in.html" />
+    <Content Include="html\html\sign-up.html" />
+    <Content Include="html\html\store-category-grid.html" />
+    <Content Include="html\html\store-category-list.html" />
+    <Content Include="html\html\store-checkout.html" />
+    <Content Include="html\html\store.html" />
+    <Content Include="html\html\table-editable.html" />
+    <Content Include="html\html\tables-basic.html" />
+    <Content Include="html\html\terms-of-service.html" />
+    <Content Include="html\html\todo.html" />
+    <Content Include="html\html\ui-alerts.html" />
+    <Content Include="html\html\ui-badges.html" />
+    <Content Include="html\html\ui-breadcrumb.html" />
+    <Content Include="html\html\ui-buttons.html" />
+    <Content Include="html\html\ui-cards.html" />
+    <Content Include="html\html\ui-carousel.html" />
+    <Content Include="html\html\ui-colors.html" />
+    <Content Include="html\html\ui-dropdowns.html" />
+    <Content Include="html\html\ui-embed-video.html" />
+    <Content Include="html\html\ui-grid.html" />
+    <Content Include="html\html\ui-images.html" />
+    <Content Include="html\html\ui-list-group.html" />
+    <Content Include="html\html\ui-media-object.html" />
+    <Content Include="html\html\ui-modal.html" />
+    <Content Include="html\html\ui-notifications.html" />
+    <Content Include="html\html\ui-pagination.html" />
+    <Content Include="html\html\ui-popovers.html" />
+    <Content Include="html\html\ui-progressbars.html" />
+    <Content Include="html\html\ui-tabs.html" />
+    <Content Include="html\html\ui-tooltips.html" />
+    <Content Include="html\html\ui-typography.html" />
+    <Content Include="html\html\weather.html" />
+    <Content Include="html\html\without-rightside.html" />
+    <Content Include="html\html\without-sidebar.html" />
+    <Content Include="html\icon-dripicons.html" />
+    <Content Include="html\icon-fontawesome-5.html" />
+    <Content Include="html\icon-lineawesome.html" />
+    <Content Include="html\icon-remixicon.html" />
+    <Content Include="html\icon-unicons.html" />
+    <Content Include="html\images\badges\01.png" />
+    <Content Include="html\images\badges\02.png" />
+    <Content Include="html\images\badges\03.png" />
+    <Content Include="html\images\badges\04.png" />
+    <Content Include="html\images\badges\05.png" />
+    <Content Include="html\images\badges\06.png" />
+    <Content Include="html\images\badges\07.png" />
+    <Content Include="html\images\badges\08.png" />
+    <Content Include="html\images\badges\09.png" />
+    <Content Include="html\images\badges\10.png" />
+    <Content Include="html\images\badges\11.png" />
+    <Content Include="html\images\badges\12.png" />
+    <Content Include="html\images\blog\01.jpg" />
+    <Content Include="html\images\blog\02.jpg" />
+    <Content Include="html\images\blog\03.jpg" />
+    <Content Include="html\images\blog\04.jpg" />
+    <Content Include="html\images\blog\05.jpg" />
+    <Content Include="html\images\blog\06.jpg" />
+    <Content Include="html\images\blog\07.jpg" />
+    <Content Include="html\images\blog\08.jpg" />
+    <Content Include="html\images\blog\b1.jpg" />
+    <Content Include="html\images\blog\b2.jpg" />
+    <Content Include="html\images\blog\b3.jpg" />
+    <Content Include="html\images\blog\b4.jpg" />
+    <Content Include="html\images\blog\b5.jpg" />
+    <Content Include="html\images\error\01.png" />
+    <Content Include="html\images\error\02.png" />
+    <Content Include="html\images\favicon.ico" />
+    <Content Include="html\images\icon\01.png" />
+    <Content Include="html\images\icon\02.png" />
+    <Content Include="html\images\icon\03.png" />
+    <Content Include="html\images\icon\04.png" />
+    <Content Include="html\images\icon\05.png" />
+    <Content Include="html\images\icon\06.png" />
+    <Content Include="html\images\icon\07.png" />
+    <Content Include="html\images\icon\08.png" />
+    <Content Include="html\images\icon\09.png" />
+    <Content Include="html\images\icon\10.png" />
+    <Content Include="html\images\icon\11.png" />
+    <Content Include="html\images\icon\12.png" />
+    <Content Include="html\images\icon\13.png" />
+    <Content Include="html\images\icon\cart.png" />
+    <Content Include="html\images\icon\entire-page.png" />
+    <Content Include="html\images\loader.png" />
+    <Content Include="html\images\login\1.png" />
+    <Content Include="html\images\login\2.png" />
+    <Content Include="html\images\login\3.png" />
+    <Content Include="html\images\login\mail.png" />
+    <Content Include="html\images\logo-full.png" />
+    <Content Include="html\images\logo-full2.png" />
+    <Content Include="html\images\logo-white.png" />
+    <Content Include="html\images\logo.png" />
+    <Content Include="html\images\page-img\01.jpg" />
+    <Content Include="html\images\page-img\02.jpg" />
+    <Content Include="html\images\page-img\03.jpg" />
+    <Content Include="html\images\page-img\06.jpg" />
+    <Content Include="html\images\page-img\07.jpg" />
+    <Content Include="html\images\page-img\08.jpg" />
+    <Content Include="html\images\page-img\09.jpg" />
+    <Content Include="html\images\page-img\10.jpg" />
+    <Content Include="html\images\page-img\100.jpg" />
+    <Content Include="html\images\page-img\11.jpg" />
+    <Content Include="html\images\page-img\12.jpg" />
+    <Content Include="html\images\page-img\13.jpg" />
+    <Content Include="html\images\page-img\14.jpg" />
+    <Content Include="html\images\page-img\15.jpg" />
+    <Content Include="html\images\page-img\16.jpg" />
+    <Content Include="html\images\page-img\17.jpg" />
+    <Content Include="html\images\page-img\18.jpg" />
+    <Content Include="html\images\page-img\19.jpg" />
+    <Content Include="html\images\page-img\20.jpg" />
+    <Content Include="html\images\page-img\21.jpg" />
+    <Content Include="html\images\page-img\22.jpg" />
+    <Content Include="html\images\page-img\23.jpg" />
+    <Content Include="html\images\page-img\24.jpg" />
+    <Content Include="html\images\page-img\25.jpg" />
+    <Content Include="html\images\page-img\26.jpg" />
+    <Content Include="html\images\page-img\27.jpg" />
+    <Content Include="html\images\page-img\28.jpg" />
+    <Content Include="html\images\page-img\42.png" />
+    <Content Include="html\images\page-img\43.png" />
+    <Content Include="html\images\page-img\44.png" />
+    <Content Include="html\images\page-img\45.png" />
+    <Content Include="html\images\page-img\46.png" />
+    <Content Include="html\images\page-img\47.png" />
+    <Content Include="html\images\page-img\48.jpg" />
+    <Content Include="html\images\page-img\51.jpg" />
+    <Content Include="html\images\page-img\52.jpg" />
+    <Content Include="html\images\page-img\53.jpg" />
+    <Content Include="html\images\page-img\54.jpg" />
+    <Content Include="html\images\page-img\55.jpg" />
+    <Content Include="html\images\page-img\56.jpg" />
+    <Content Include="html\images\page-img\57.jpg" />
+    <Content Include="html\images\page-img\58.jpg" />
+    <Content Include="html\images\page-img\59.jpg" />
+    <Content Include="html\images\page-img\60.jpg" />
+    <Content Include="html\images\page-img\61.jpg" />
+    <Content Include="html\images\page-img\62.jpg" />
+    <Content Include="html\images\page-img\63.jpg" />
+    <Content Include="html\images\page-img\64.jpg" />
+    <Content Include="html\images\page-img\65.jpg" />
+    <Content Include="html\images\page-img\g1.jpg" />
+    <Content Include="html\images\page-img\g2.jpg" />
+    <Content Include="html\images\page-img\g3.jpg" />
+    <Content Include="html\images\page-img\g4.jpg" />
+    <Content Include="html\images\page-img\g5.jpg" />
+    <Content Include="html\images\page-img\g6.jpg" />
+    <Content Include="html\images\page-img\g7.jpg" />
+    <Content Include="html\images\page-img\g8.jpg" />
+    <Content Include="html\images\page-img\g9.jpg" />
+    <Content Include="html\images\page-img\gi-1.jpg" />
+    <Content Include="html\images\page-img\gi-2.jpg" />
+    <Content Include="html\images\page-img\gi-3.jpg" />
+    <Content Include="html\images\page-img\gi-4.jpg" />
+    <Content Include="html\images\page-img\gi-5.jpg" />
+    <Content Include="html\images\page-img\gi-6.jpg" />
+    <Content Include="html\images\page-img\gi-7.jpg" />
+    <Content Include="html\images\page-img\gi-8.jpg" />
+    <Content Include="html\images\page-img\gi-9.jpg" />
+    <Content Include="html\images\page-img\img-success.png" />
+    <Content Include="html\images\page-img\l1.jpg" />
+    <Content Include="html\images\page-img\l2.jpg" />
+    <Content Include="html\images\page-img\l3.jpg" />
+    <Content Include="html\images\page-img\l4.jpg" />
+    <Content Include="html\images\page-img\l5.jpg" />
+    <Content Include="html\images\page-img\l6.jpg" />
+    <Content Include="html\images\page-img\man.svg" />
+    <Content Include="html\images\page-img\n1.jpg" />
+    <Content Include="html\images\page-img\n2.jpg" />
+    <Content Include="html\images\page-img\n3.jpg" />
+    <Content Include="html\images\page-img\n4.jpg" />
+    <Content Include="html\images\page-img\n5.jpg" />
+    <Content Include="html\images\page-img\n6.jpg" />
+    <Content Include="html\images\page-img\n7.jpg" />
+    <Content Include="html\images\page-img\n8.jpg" />
+    <Content Include="html\images\page-img\p1.jpg" />
+    <Content Include="html\images\page-img\p2.jpg" />
+    <Content Include="html\images\page-img\p3.jpg" />
+    <Content Include="html\images\page-img\p4.jpg" />
+    <Content Include="html\images\page-img\p5.jpg" />
+    <Content Include="html\images\page-img\page-load-loader.gif" />
+    <Content Include="html\images\page-img\profile-bg1.jpg" />
+    <Content Include="html\images\page-img\profile-bg2.jpg" />
+    <Content Include="html\images\page-img\profile-bg3.jpg" />
+    <Content Include="html\images\page-img\profile-bg4.jpg" />
+    <Content Include="html\images\page-img\profile-bg5.jpg" />
+    <Content Include="html\images\page-img\profile-bg6.jpg" />
+    <Content Include="html\images\page-img\profile-bg7.jpg" />
+    <Content Include="html\images\page-img\profile-bg8.jpg" />
+    <Content Include="html\images\page-img\profile-bg9.jpg" />
+    <Content Include="html\images\page-img\r1.jpg" />
+    <Content Include="html\images\page-img\r2.jpg" />
+    <Content Include="html\images\page-img\r3.jpg" />
+    <Content Include="html\images\page-img\r4.jpg" />
+    <Content Include="html\images\page-img\r5.jpg" />
+    <Content Include="html\images\page-img\r6.jpg" />
+    <Content Include="html\images\page-img\r7.jpg" />
+    <Content Include="html\images\page-img\r8.jpg" />
+    <Content Include="html\images\page-img\s1.jpg" />
+    <Content Include="html\images\page-img\s2.jpg" />
+    <Content Include="html\images\page-img\s3.jpg" />
+    <Content Include="html\images\page-img\s4.jpg" />
+    <Content Include="html\images\page-img\s5.jpg" />
+    <Content Include="html\images\page-img\tag_blue.svg" />
+    <Content Include="html\images\page-img\tag_red.svg" />
+    <Content Include="html\images\small\04.svg" />
+    <Content Include="html\images\small\05.svg" />
+    <Content Include="html\images\small\07.png" />
+    <Content Include="html\images\small\08.png" />
+    <Content Include="html\images\small\09.png" />
+    <Content Include="html\images\small\10.png" />
+    <Content Include="html\images\small\11.png" />
+    <Content Include="html\images\small\12.png" />
+    <Content Include="html\images\small\13.png" />
+    <Content Include="html\images\small\14.png" />
+    <Content Include="html\images\small\flag-01.png" />
+    <Content Include="html\images\small\flag-02.png" />
+    <Content Include="html\images\small\flag-03.png" />
+    <Content Include="html\images\small\flag-04.png" />
+    <Content Include="html\images\small\flag-05.png" />
+    <Content Include="html\images\small\flag-06.png" />
+    <Content Include="html\images\small\img-1.jpg" />
+    <Content Include="html\images\small\img-2.jpg" />
+    <Content Include="html\images\small\jpg.svg" />
+    <Content Include="html\images\small\xml.svg" />
+    <Content Include="html\images\small\zip.svg" />
+    <Content Include="html\images\store\01.jpg" />
+    <Content Include="html\images\store\02.jpg" />
+    <Content Include="html\images\store\03.jpg" />
+    <Content Include="html\images\store\04.jpg" />
+    <Content Include="html\images\store\05.jpg" />
+    <Content Include="html\images\store\06.jpg" />
+    <Content Include="html\images\store\07.jpg" />
+    <Content Include="html\images\store\08.jpg" />
+    <Content Include="html\images\store\09.jpg" />
+    <Content Include="html\images\store\10.jpg" />
+    <Content Include="html\images\store\11.jpg" />
+    <Content Include="html\images\store\12.jpg" />
+    <Content Include="html\images\store\13.jpg" />
+    <Content Include="html\images\store\14.jpg" />
+    <Content Include="html\images\store\c1.jpg" />
+    <Content Include="html\images\store\c2.jpg" />
+    <Content Include="html\images\store\c3.jpg" />
+    <Content Include="html\images\store\c4.jpg" />
+    <Content Include="html\images\store\c5.jpg" />
+    <Content Include="html\images\user\01.jpg" />
+    <Content Include="html\images\user\02.jpg" />
+    <Content Include="html\images\user\03.jpg" />
+    <Content Include="html\images\user\04.jpg" />
+    <Content Include="html\images\user\05.jpg" />
+    <Content Include="html\images\user\06.jpg" />
+    <Content Include="html\images\user\07.jpg" />
+    <Content Include="html\images\user\08.jpg" />
+    <Content Include="html\images\user\09.jpg" />
+    <Content Include="html\images\user\1.jpg" />
+    <Content Include="html\images\user\10.jpg" />
+    <Content Include="html\images\user\11.jpg" />
+    <Content Include="html\images\user\11.png" />
+    <Content Include="html\images\user\12.jpg" />
+    <Content Include="html\images\user\13.jpg" />
+    <Content Include="html\images\user\14.jpg" />
+    <Content Include="html\images\user\15.jpg" />
+    <Content Include="html\images\user\16.jpg" />
+    <Content Include="html\images\user\17.jpg" />
+    <Content Include="html\images\user\18.jpg" />
+    <Content Include="html\images\user\19.jpg" />
+    <Content Include="html\images\user\4.jpg" />
+    <Content Include="html\images\user\user-1.jpg" />
+    <Content Include="html\images\user\user-2.jpg" />
+    <Content Include="html\images\user\user-3.jpg" />
+    <Content Include="html\images\user\user-4.jpg" />
+    <Content Include="html\images\user\user-5.jpg" />
+    <Content Include="html\images\user\user-6.jpg" />
+    <Content Include="html\indexOrigional.html" />
+    <Content Include="html\index.html" />
+    <Content Include="html\js\animated.js" />
+    <Content Include="html\js\apexcharts.js" />
+    <Content Include="html\js\bodymovin.js" />
+    <Content Include="html\js\bootstrap.min.js" />
+    <Content Include="html\js\chart-custom.js" />
+    <Content Include="html\js\charts.js" />
+    <Content Include="html\js\core.js" />
+    <Content Include="html\js\countdown.min.js" />
+    <Content Include="html\js\custom.js" />
+    <Content Include="html\js\emailTemplate.js" />
+    <Content Include="html\js\flatpickr.js" />
+    <Content Include="html\js\jquery-3.3.1.min.js" />
+    <Content Include="html\js\jquery.appear.js" />
+    <Content Include="html\js\jquery.counterup.min.js" />
+    <Content Include="html\js\jquery.magnific-popup.min.js" />
+    <Content Include="html\js\jquery.min.js" />
+    <Content Include="html\js\kelly.js" />
+    <Content Include="html\js\lottie.js" />
+    <Content Include="html\js\maps.js" />
+    <Content Include="html\js\owl.carousel.min.js" />
+    <Content Include="html\js\popper.min.js" />
+    <Content Include="html\js\raphael-min.js" />
+    <Content Include="html\js\select2.min.js" />
+    <Content Include="html\js\slick.min.js" />
+    <Content Include="html\js\smooth-scrollbar.js" />
+    <Content Include="html\js\waypoints.min.js" />
+    <Content Include="html\js\worldHigh.js" />
+    <Content Include="html\js\worldLow.js" />
+    <Content Include="html\js\wow.min.js" />
+    <Content Include="html\music.html" />
+    <Content Include="html\notification.html" />
+    <Content Include="html\pages-comingsoon.html" />
+    <Content Include="html\pages-confirm-mail.html" />
+    <Content Include="html\pages-error-500.html" />
+    <Content Include="html\pages-error.html" />
+    <Content Include="html\pages-faq.html" />
+    <Content Include="html\pages-invoice.html" />
+    <Content Include="html\pages-lock-screen.html" />
+    <Content Include="html\pages-maintenance.html" />
+    <Content Include="html\pages-pricing-one.html" />
+    <Content Include="html\pages-pricing.html" />
+    <Content Include="html\pages-recoverpw.html" />
+    <Content Include="html\pages-timeline.html" />
+    <Content Include="html\privacy-policy.html" />
+    <Content Include="html\privacy-setting.html" />
+    <Content Include="html\profile-badges.html" />
+    <Content Include="html\profile-edit.html" />
+    <Content Include="html\profile-event.html" />
+    <Content Include="html\profile-forum.html" />
+    <Content Include="html\profile-images.html" />
+    <Content Include="html\profile-video.html" />
+    <Content Include="html\profile.html" />
+    <Content Include="html\two-factor.html" />
+    <Content Include="html\sign-in.html" />
+    <Content Include="html\sign-up.html" />
+    <Content Include="html\store-category-grid.html" />
+    <Content Include="html\store-category-list.html" />
+    <Content Include="html\store-checkout.html" />
+    <Content Include="html\store.html" />
+    <Content Include="html\SubPages\Footer.html" />
+    <Content Include="html\SubPages\RightSideBar.html" />
+    <Content Include="html\SubPages\SidebarMini.html" />
+    <Content Include="html\SubPages\Sidebar.html" />
+    <Content Include="html\SubPages\SignInItem.html" />
+    <Content Include="html\SubPages\TopNavbar.html" />
+    <Content Include="html\table-editable.html" />
+    <Content Include="html\tables-basic.html" />
+    <Content Include="html\terms-of-service.html" />
+    <Content Include="html\todo.html" />
+    <Content Include="html\ui-alerts.html" />
+    <Content Include="html\ui-badges.html" />
+    <Content Include="html\ui-breadcrumb.html" />
+    <Content Include="html\ui-buttons.html" />
+    <Content Include="html\ui-cards.html" />
+    <Content Include="html\ui-carousel.html" />
+    <Content Include="html\ui-colors.html" />
+    <Content Include="html\ui-dropdowns.html" />
+    <Content Include="html\ui-embed-video.html" />
+    <Content Include="html\ui-grid.html" />
+    <Content Include="html\ui-images.html" />
+    <Content Include="html\ui-list-group.html" />
+    <Content Include="html\ui-media-object.html" />
+    <Content Include="html\ui-modal.html" />
+    <Content Include="html\ui-notifications.html" />
+    <Content Include="html\ui-pagination.html" />
+    <Content Include="html\ui-popovers.html" />
+    <Content Include="html\ui-progressbars.html" />
+    <Content Include="html\ui-tabs.html" />
+    <Content Include="html\ui-tooltips.html" />
+    <Content Include="html\ui-typography.html" />
+    <Content Include="html\weather.html" />
+    <Content Include="html\without-rightside.html" />
+    <Content Include="html\without-sidebar.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="html\fullcalendar\bootstrap\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\core\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\google-calendar\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\interaction\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\list\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\luxon\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\moment-timezone\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\moment\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\rrule\main.d.ts" />
+    <TypeScriptCompile Include="html\fullcalendar\timegrid\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\bootstrap\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\core\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\google-calendar\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\interaction\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\list\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\luxon\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\moment-timezone\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\moment\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\rrule\main.d.ts" />
+    <TypeScriptCompile Include="html\html\fullcalendar\timegrid\main.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60886</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44338/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
