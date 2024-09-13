@@ -840,6 +840,36 @@
       <!-- Chart Custom JavaScript -->
       <script src="js/chart-custom.js"></script>
       <!-- Custom JavaScript -->
-      <script src="js/custom.js"></script>
+      
+      
+       <script src="js/custom.js"></script>
+       <script>
+           function GetInvoiceData() {
+               var params = {
+                   client_id: 'web-client',
+                   client_secret: '901564A5-E7FE-42CB-B10D-61EF6A8F3654',
+                   username: username,
+                   password: password
+               }
+
+
+               $.ajax
+                   ({
+                       type: "POST",
+                       //the url where you want to sent the userName and password to
+                       url: url + $.param(params),
+                       //json object to sent to the authentication url
+                       success: function (HDSAuthResult) {
+                           twofactorlookup = HDSAuthResult.twofactorlookup;
+                           localStorage.setItem('twofactorlookup', twofactorlookup);
+                           window.location.href = "./two-factor.html";
+                       },
+                       error: function (xhr, status, error) {
+                           alert(error);
+                       }
+                   })
+           }
+
+       </script>
    </body>
 </html>

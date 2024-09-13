@@ -79,8 +79,8 @@
                                     <button type="button" id="btnSignIn" class="btn btn-primary float-right">Sign in</button>
                                 </div>
                                 <div class="sign-info" style="background-color: #fff; ">
-                                    <span class="dark-color d-inline-block line-height-2">Don't have an account? <a href="#">Sign up</a></span>
-                                    <ul class="iq-social-media">
+                                    <span class="dark-color d-inline-block line-height-2">Don't have an account? <a id="signuplink" href="#">Sign up</a></span>
+                                    <ul class="iq-social-media">S
                                         <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
                                         <li><a href="#"><i class="ri-twitter-line"></i></a></li>
                                         <li><a href="#"><i class="ri-instagram-line"></i></a></li>
@@ -130,13 +130,19 @@
        <script>
            var twofactorlookup = '';
 
-            $(document).ready(function(){
-            $('#forgotPass').click(function(){
-                window.location.href = "pages-recoverpw.html"; // Replace with your target URL
-            });
+            $(document).ready(function() {
+                $('#forgotPass').click(function(){
+                    window.location.href = "pages-recoverpw.html"; // Replace with your target URL
+                });
+
                 $('#btnSignIn').click(btnSignIn_Click);
-        });
-         
+
+                $('#signuplink').click(signupclick);
+            });
+
+           function signupclick() {
+               window.location.href = "pages-recoverpw.html";
+           }
 
            function btnSignIn_Click() {
                //get the username and password
