@@ -25,6 +25,10 @@
             left: 360px;
             cursor: pointer;
         }
+
+        #passwordwarn {
+            color: red;
+        }
     </style>
 
 </head>
@@ -99,15 +103,19 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <span id="passwordwarn">&nbsp;</span>
+                            </div>
+
                             <div class="d-inline-block w-100">
                                 <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">I accept <a href="#">Terms and Conditions</a></label>
+                                    <input type="checkbox" class="custom-control-input" id="chkTermsAndConditions">
+                                    <label class="custom-control-label" for="chkTermsAndConditions">I accept <a href="#">Terms and Conditions</a></label>
                                 </div>
-                                <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-primary float-right">Sign Up</button>
                             </div>
                             <div class="sign-info">
-                                <span class="dark-color d-inline-block line-height-2">Already Have Account ? <a href="#">Log In</a></span>
+                                <span class="dark-color d-inline-block line-height-2">Already Have Account? <a href="/html/sign-in.html">Log In</a></span>
                                 <ul class="iq-social-media">
                                     <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
                                     <li><a href="#"><i class="ri-twitter-line"></i></a></li>
@@ -154,8 +162,70 @@
     <!-- Custom JavaScript -->
     <script src="js/custom.js"></script>
     <script>
-        $('div.togglePassword').click(togglePasswordView);
 
+        $('div.togglePassword').click(togglePasswordView);
+        $('input#password').keyup(comparePasswords);
+        $('input#passwordrepeat').keyup(comparePasswords);
+        $('input#password').change(comparePasswords);
+        $('input#passwordrepeat').change(comparePasswords);
+        $('#btnSubmit').click(doSubmit);
+
+        function doSubmit() {
+            var msg = '';
+            //confirm fullname
+            if ($("input#fullname").val() == '') {
+                msg += "Please enter your full name.\n";
+            }
+
+            //confirm email
+            var email = $("input#email").val();
+            if (!isEmailValid(email)) {
+                msg += 'The email address does not appear to be valid.\n';
+            }
+
+            //confirm passwords are equal
+            if ($("input#password").val() == '' || $("input#passwordrepeat").val() == '') {
+                msg += "One or both passwords are empty.\n";
+            }
+
+            if ($("input#password").val() != $("input#passwordrepeat").val()) {
+                msg += "The passwords do not match.\n";
+            }
+
+            //confirm Terms and Conditions have been accepted
+            if (!$('#chkTermsAndConditions').prop('checked')) {
+                msg += "Please accept the terms and conditions\n"
+            }
+
+            if (msg != '') {
+                msg = 'Unable to submit the form. Please correct the below conditions.\n\n' + msg;
+                alert(msg);
+                return false;
+            } else {
+                //call the api call to register a user
+                alert('ready to go');
+            }
+
+        }
+
+        function isEmailValid(email) {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (email.match(mailformat)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        function comparePasswords() {
+            if ($("input#password").val() != $("input#passwordrepeat").val()) {
+                $("span#passwordwarn").text("The passwords do not match");
+            } else {
+                $("span#passwordwarn").text("");
+            }
+        }
+         
         function togglePasswordView(element) {
             var id = element.currentTarget.id;
 
