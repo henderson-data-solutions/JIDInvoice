@@ -131,7 +131,7 @@
            }
 
            function twofactorverify(lookup, code) {
-               var url = "https://localhost:7002/Accounts/TwoFactorVerify?"
+               var url = localStorage.getItem("apiTwoFactorVerify")
                var params = {
                    code2FA: code,
                    lookup2FA: lookup
@@ -141,7 +141,7 @@
                    ({
                        type: "POST",
                        //the url where you want to sent the userName and password to
-                       url: url + $.param(params),
+                       url: url + "?" + $.param(params),
                        //json object to sent to the authentication url
                        success: twoFactorVerifySuccess, 
                        error: twoFactorVerifySuccess
@@ -149,22 +149,26 @@
            }
 
            function twoFactorVerifySuccess(data) {
-               debugger;
                var jwt = data.access_token;
 
                localStorage.setItem('access_token', jwt);
 
                $.ajax({
-                   url: "https://localhost:7002/Invoices/GetCustomers",
+                   url: localStorage.getItem("apiInvoicesGetCustomers"),
                    type: 'GET',
                    // Fetch the stored token from localStorage and set in the header
-                   headers: { "Authorization": "Bearer " + localStorage.getItem('access_token') }
+                   headers: { "Authorization": "Bearer " + localStorage.getItem('access_token') },
+                   success: getCustomersSuccess
                });
 
            }
 
            function twoFactorVerifyError(xhr, status, error) {
-               alert(error);
+               alert("An error has been encountered: " + error);
+           }
+
+           function getCustomersSuccess(data) {
+               alert("the user has been succesfully logged in."
            }
        </script>
        <input type="hidden" id="twofactorlookup=" value="" />

@@ -12,7 +12,7 @@ function sendEmailErrors() {
     };
     try {
         $.ajax({
-            url: 'https://uat1.hendersondatasolutions.com:8093/api/PostMessage',
+            url: localStorage.getItem("apiSendEmail"),
             type: 'POST',
             crossDomain: true,
             contentType: "application/json",
@@ -113,10 +113,10 @@ function sendMyEmail( subject, emailData) {
     };
 
     try {
-        // send request to server to see if we are authenticated. https://localhost:44398/
+        // send request to server to see if we are authenticated.
         //data: JSON.stringify(content, null, 2),
         $.ajax({
-            url: 'https://uat1.hendersondatasolutions.com:8093/api/PostMessage',
+            url: localStorage.getItem("apiSendEmail"),
             type: 'POST',
             crossDomain: true,
             contentType: "application/json",
@@ -169,7 +169,7 @@ function sendMyEmail_(emailBody) {
         // send request to server to see if we are authenticated. https://localhost:44398/
         //data: JSON.stringify(content, null, 2),
         $.ajax({
-            url: 'https://uat1.hendersondatasolutions.com:8093/api/PostMessage',
+            url: localStorage.getItem("apiSendEmail"),
             type: 'POST',
             crossDomain: true,
             contentType: "application/json",
@@ -221,7 +221,7 @@ function sendEmail(emailBody) {
         // send request to server to see if we are authenticated. https://localhost:44398/
         //data: JSON.stringify(content, null, 2),
         $.ajax({
-            url: 'https://uat1.hendersondatasolutions.com:8093/api/PostMessage',
+            url: localStorage.getItem("apiSendEmail"),
             type: 'POST',
             crossDomain: true,
             contentType: "application/json",
