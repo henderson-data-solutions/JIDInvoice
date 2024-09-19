@@ -109,10 +109,13 @@
 
                             <div class="d-inline-block w-100">
                                 <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                                    <input type="checkbox" class="custom-control-input" id="chkTermsAndConditions">
+                                    <input type="checkbox" class="custom-control-input" id="TermsAndConditions">
                                     <label class="custom-control-label" for="chkTermsAndConditions">I accept <a href="#">Terms and Conditions</a></label>
                                 </div>
-                                <button type="submit" id="btnSubmit" class="btn btn-primary float-right">Sign Up</button>
+                                <button type="button" 
+                                        id="btnSubmit" 
+                                        class="btn btn-primary float-right"
+                                        onclick="doSubmit();">Sign Up</button>
                             </div>
                             <div class="sign-info">
                                 <span class="dark-color d-inline-block line-height-2">Already Have Account? <a href="/html/sign-in.html">Log In</a></span>
@@ -193,7 +196,7 @@
             }
 
             //confirm Terms and Conditions have been accepted
-            if (!$('#chkTermsAndConditions').prop('checked')) {
+            if (!$('#TermsAndConditions').prop('checked')) {
                 msg += "Please accept the terms and conditions\n"
             }
 
