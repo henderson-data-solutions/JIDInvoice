@@ -160,7 +160,7 @@
            function authenticate(username, password) {
                var url = localStorage.getItem("apiAuthenticate");
                var obj = {
-                   Url: "https://localhost:7002/Account/Login",
+                   Url: localStorage.getItem("RedirUri"),
                    ClientId: localStorage.getItem("client_id"),
                    ClientSecret: localStorage.getItem("client_secret"),
                    Username: username,
