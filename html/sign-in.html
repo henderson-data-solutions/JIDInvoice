@@ -64,12 +64,12 @@
                            <form class="mt-4">
                                <div class="form-group">
                                    <label for="exampleInputEmail1">Email address</label>
-                                   <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                                   <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" value="ldew@hendersondatasolutions.com">
                                </div>
                                <div class="form-group">
                                    <label for="exampleInputPassword1">Password</label>
                                    <a class="float-right" id="forgotPass">Forgot password?</a>
-                                   <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
+                                   <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password" value="Heidi23084&">
                                </div>
                                <div class="d-inline-block w-100">
                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
@@ -148,6 +148,7 @@
 
            function btnSignIn_Click() {
                //get the username and password
+               debugger;
                var email = $('input#exampleInputEmail1').val();
                var password = $('input#exampleInputPassword1').val();
                authenticate(email, password);
@@ -158,20 +159,22 @@
 
            function authenticate(username, password) {
                var url = localStorage.getItem("apiAuthenticate");
-               var params = {
-                   client_id: localStorage.getItem("client_id"),
-                   client_secret: localStorage.getItem("client_secret"),
-                   username: username,
-                   password: password
+               var obj = {
+                   Url: "https://localhost:7002/Account/Login",
+                   ClientId: localStorage.getItem("client_id"),
+                   ClientSecret: localStorage.getItem("client_secret"),
+                   Username: username,
+                   Password: password
                }
 
-
+               debugger;
                $.ajax
                    ({
                        type: "POST",
-                       //the url where you want to sent the userName and password to
-                       url: url + "?" + $.param(params),
-                       //json object to sent to the authentication url
+                       url: url,
+                       dataType: 'json',
+                       data: JSON.stringify(obj),
+                       contentType: "application/json; charset=utf-8",
                        success: function (HDSAuthResult) {
                            twofactorlookup = HDSAuthResult.twofactorlookup;
                            localStorage.setItem('twofactorlookup', twofactorlookup);
