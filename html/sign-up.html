@@ -109,13 +109,12 @@
 
                             <div class="d-inline-block w-100">
                                 <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                                    <input type="checkbox" class="custom-control-input" id="TermsAndConditions">
-                                    <label class="custom-control-label" for="chkTermsAndConditions">I accept <a href="#">Terms and Conditions</a></label>
+                                    <input type="checkbox" class="custom-control-input" id="TermsAndConditions"/>
+                                    <label class="custom-control-label" for="TermsAndConditions">I accept <a href="#">Terms and Conditions</a></label>
                                 </div>
                                 <button type="button" 
                                         id="btnSubmit" 
-                                        class="btn btn-primary float-right"
-                                        onclick="doSubmit();">Sign Up</button>
+                                        class="btn btn-primary float-right">Sign Up</button>
                             </div>
                             <div class="sign-info">
                                 <span class="dark-color d-inline-block line-height-2">Already Have Account? <a href="/html/sign-in.html">Log In</a></span>
@@ -174,6 +173,7 @@
         $('#btnSubmit').click(doSubmit);
 
         function doSubmit() {
+            alert('doSubmit()');
             var msg = '';
             //confirm fullname
             if ($("input#fullname").val() == '') {
@@ -205,10 +205,39 @@
                 alert(msg);
                 return false;
             } else {
-                //call the api call to register a user
-                alert('ready to go');
-            }
+                //call the api to register a user
+                var url = localStorage.getItem("apiRegisterUser");
 
+                var obj = {
+                    FullName: $("input#fullname").val(),
+                    Email: $("input#email").val(),
+                    Password: $("input#email").val(),
+                    PasswordRepeat: localStorage.getItem("client_secret"),
+                    TermsAndConditions: $("input#TermsAndConditions").checked
+                };
+               }
+
+               $.ajax
+                   ({
+                       type: "POST",
+                       url: url,
+                       dataType: 'json',
+                       data: JSON.stringify(obj),
+                       contentType: "application/json; charset=utf-8",
+                       success: function (Status) {
+                           debugger;
+                           if (Status.Status == 0) {
+                               window.location.href = "./emailverification.html";                                
+                           }
+                           else
+                           {
+                               alert(Status.Message);
+                           }
+                       },
+                       error: function (xhr, status, error) {
+                           alert("An unspecified error was encountered attempting to register the user.");
+                       }
+                   })
         }
 
         function isEmailValid(email) {
