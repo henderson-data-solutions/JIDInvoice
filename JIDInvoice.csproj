@@ -1238,9 +1238,10 @@
     <Content Include="html\profile-images.html" />
     <Content Include="html\profile-video.html" />
     <Content Include="html\profile.html" />
+    <Content Include="html\sign-up.html" />
     <Content Include="html\two-factor.html" />
     <Content Include="html\sign-in.html" />
-    <Content Include="html\sign-up.html" />
+    <Content Include="html\emailverification.html" />
     <Content Include="html\store-category-grid.html" />
     <Content Include="html\store-category-list.html" />
     <Content Include="html\store-checkout.html" />

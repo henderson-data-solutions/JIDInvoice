@@ -1,0 +1,7 @@
+﻿localStorage.setItem("apiAuthenticate", "https://uat1.hendersondatasolutions.com:8085/api/authenticate");
+localStorage.setItem("apiTwoFactorVerify", "https://uat1.hendersondatasolutions.com:8085/api/TwoFactorVerify");
+localStorage.setItem("apiInvoicesGetCustomers", "https://uat1.hendersondatasolutions.com:8085/Invoices/GetCustomers");
+localStorage.setItem("RedirUri", "https://uat1.hendersondatasolutions.com:8085/api/Authresponse");
+localStorage.setItem("apiRegisterUser", "https://uat1.hendersondatasolutions.com:8085/Users/Register");
+
+localStorage.setItem("apiSendEmail", "https://uat1.hendersondatasolutions.com:8093/api/PostMessage");

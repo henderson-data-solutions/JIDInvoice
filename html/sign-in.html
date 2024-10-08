@@ -148,7 +148,6 @@
 
            function btnSignIn_Click() {
                //get the username and password
-               debugger;
                var email = $('input#exampleInputEmail1').val();
                var password = $('input#exampleInputPassword1').val();
                authenticate(email, password);
@@ -161,8 +160,6 @@
                var url = localStorage.getItem("apiAuthenticate");
                var obj = {
                    Url: localStorage.getItem("RedirUri"),
-                   ClientId: localStorage.getItem("client_id"),
-                   ClientSecret: localStorage.getItem("client_secret"),
                    Username: username,
                    Password: password
                }
@@ -174,16 +171,26 @@
                        dataType: 'json',
                        data: JSON.stringify(obj),
                        contentType: "application/json; charset=utf-8",
-                       success: function (HDSAuthResult) {
-                           twofactorlookup = HDSAuthResult.twofactorlookup;
-                           localStorage.setItem('twofactorlookup', twofactorlookup);
-                           window.location.href = "./two-factor.html";
-                       },
-                       error: function (xhr, status, error) {
-                           alert("Unable to authenticate the specified user. Please check your spelling and try again.");
-                       }
+                       success: authenticateSuccess,
+                       error: authenticateError
                    })
            }
+
+           function authenticateSuccess(HDSAuthResult) {
+               if (HDSAuthResult.status == 200) {
+                   twofactorlookup = HDSAuthResult.twofactorlookup;
+                   localStorage.setItem('twofactorlookup', twofactorlookup);
+                   window.location.href = "./two-factor.html";
+               }
+               else {
+                   alert("The username and password combination do not appear to be valid. Please check the spelling and try again.");
+               }
+           }
+
+           function authenticateError(xhr, status, error) {
+               alert("An error was encountered trying authenticate the specified user. Please try again.");
+           }
+
        </script>
    </body>
 </html>

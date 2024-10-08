@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SocialV - Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <title>Email Verification</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
     <!-- Bootstrap CSS -->
@@ -75,8 +75,8 @@
                 </div>
                 <div class="col-md-6 bg-white pt-5">
                     <div class="sign-in-from">
-                        <h1 class="mb-0">Sign Up</h1>
-                        <p>Enter your email address and password to access admin panel.</p>
+                        <h1 class="mb-0">Email Verification</h1>
+                        <p>An email has been sent to the address you used to register. Open the email and click on the link to verify your email.</p>
                         <form class="mt-4">
                             <div class="form-group">
                                 <label for="fullname">Your Full Name</label>
@@ -225,7 +225,7 @@
                        contentType: "application/json; charset=utf-8",
                        success: function (Status) {
                            if (Status.Status == 0) {
-                               window.location.href = "./emailverification.html?email=$("input#email").val()";                                
+                               window.location.href = "./emailverification.html?email=" + $("input#email").val();  
                            }
                            else
                            {
