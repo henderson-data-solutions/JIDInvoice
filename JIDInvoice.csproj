@@ -188,6 +188,7 @@
     <Content Include="html\fullcalendar\rrule\README.md" />
     <Content Include="html\fullcalendar\timegrid\package.json" />
     <Content Include="html\fullcalendar\timegrid\README.md" />
+    <Content Include="html\hds-invoice.html" />
     <Content Include="html\html\fonts\dripicons-v2.eot" />
     <Content Include="html\html\fonts\dripicons-v2.ttf" />
     <Content Include="html\html\fonts\dripicons-v2.woff" />
@@ -261,6 +262,7 @@
     <Content Include="html\images\hds-favicon-1.png" />
     <Content Include="html\images\icon\expand-window.json" />
     <Content Include="html\images\icon\open-letter.json" />
+    <Content Include="html\images\payment.png" />
     <Content Include="html\images\small\data.json" />
     <Content Include="html\images\small\data1.json" />
     <Content Include="html\images\small\data2.json" />

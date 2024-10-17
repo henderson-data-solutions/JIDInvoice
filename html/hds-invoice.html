@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+	<title>HDS - Invoice</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/hds-favicon-1.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="css/typography.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="printerpage">
+	<div id="mainbody">
+		
+		<div id="row1">
+			<div id="logo">
+				<image src="images/hds_shield.png" width="100%"/>
+				<div id="logocaption">Henderson Data Solutions</div>
+			</div>
+			<div id="invoiceblock">
+				<span id="invoicetitle" class="hdsblue">Invoice</span>
+				<br />
+				<span class="hdsblue">#<label id="InvoiceNumber" /></span>
+				<br />
+				<div id="balancedue">Balance Due</div>
+				<span>$<label id="InvoiceAmount" /></span>
+				
+			</div>
+		</div>
+		
+		<div id="row2">
+			<div id="billto">
+				<div class="sectionlabel darkblue">Bill To</div>
+				<div class="clientname"><label id="clientname" /></div>
+			</div>
+			
+			<div id="invoicedate">
+				<table>
+					<tr>
+						<td class="invoicedateprompt darkblue">Invoice Date:&nbsp;</td>
+						<td class="invoicedateprompt"><label class="invoicedate" id="InvoiceDate" /></td>
+					</tr>
+					<tr>
+						<td class="invoicedateprompt darkblue">Due Date:&nbsp;</td>
+						<td class="invoicedateprompt"><label class="invoicedate" id="DueDate" /></td>
+					</tr>
+					<tr>
+						<td class="invoicedateprompt darkblue">P.O.#:&nbsp;</td>
+						<td class="invoicedateprompt"><label class="invoicedate" id="PurchaseOrderNo" /></td>
+					</tr>
+				</table>
+			</div>
+		
+		</div>
+		
+		<div id="invoicetable">
+			<table>
+				<tr>
+					<th class="no width5">#</th>
+					<th class="item width60">Item & Description</th>
+					<th class="qty width10">Qty</th>
+					<th class="rate width10">Rate</th>
+					<th class="amount width15">Amount</th>
+				</tr>
+				<tr>
+					<td class="no width5"><label id="itemno" /></td>
+					<td class="item width60"><label id="itemdesc" /></td>
+					<td class="qty width10"><label id="qty" /></td>
+					<td class="rate width10">$<label id="rate" /></td>
+					<td class="amount width15">$<label id="amount" /></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td class="width50">&nbsp;</td>
+					<td class="totalprompt width30">Total</td>
+					<td class="total width20">$<label id="total" />"</td>
+				</tr>
+				<tr>
+					<td class="width50">&nbsp;</td>
+					<td class="balancedueprompt width30">Balance Due</td>
+					<td class="balancedue width20">$<label id="balancedue" /></td>
+				</tr>
+
+			</table>
+		</div>
+		
+		<div id="notes">
+			<div class="sectionlabel darkblue">Notes</div>
+			<div class="notestext" id="notesdata">notes</div>
+
+			<div>Please mail any checks to our Billing Address:<br />
+			3200 Steck Avenue, #245<br />
+			Austin, TX 78757</div>
+		</div>
+		
+		<div id="paymentdetails">
+			<div class="sectionlabel darkblue">From</div>
+			<div class="clientname"><label id="clientname2" /></div>
+			<div id="paymentdetailscontact"><label id="contactname" /></div>
+			<div id="paymentdetailsinvoice">
+				<table>
+					<tr>
+						<td class="pdilabel">Invoice #</td><td>:</td><td class="pdidata"><label id="invoicedate2" /></td>
+					</tr>
+					<tr>
+						<td class="pdilabel">Invoice Date</td><td>:</td><td class="pdidata"><label id="duedate2" /></td>
+					</tr>
+					<tr>
+						<td class="pdilabel">Balance Due</td><td>:</td><td class="pdidata">$<label id="balancedue2" />{balancedue}</td>				
+					</tr>
+				</table>
+			</div>
+			<div id="paymentamount">
+				<div id="label">Amount Enclosed</div>
+				<div id="amount">&nbsp;</div>
+			</div>
+		</div>
+		
+		
+		<div id="paymentstub">
+			<div id="paymentstubtitle">Payment Stub</div>
+			<div id="paymentstubaddress"><span class="bold">HENDERSON DATA SOLUTIONS</span><br />
+			3200 Steck Avenue, #245<br />
+			Austin, TX, 78757</div>
+		</div>
+		
+		<div id="paymentoptions">
+			<div class="sectionlabel darkblue">Payment Options</div>
+
+			<a href="https://billing.hendersondatasolutions.com/portal/hendersondatasolutions/secure?CInvoiceID=2-99f17f8b14e8b3c4ea88cc25b1a130afe694cb43fa5771afe9a28a108766ac5045cfc983cd22b548df784b79a4cb08412ae215302255f8e0d37a06081412d6fe11e80a707f5b3196">
+				<image src="images/payment.png" />
+			</a>
+		</div>
+		
+		<div id="terms">
+			<div class="sectionlabel darkblue">Terms &amp; Conditions</div>
+			<div class="legal">Payments are due or receipt. After 14 days, unpaid invoices will result it the greater of $20 or 1% of the outstanding balance in finance charges.</div>
+		</div>
+		
+	</div>
+</div>
+       <script src="js/jquery.min.js"></script>
+       <script src="js/popper.min.js"></script>
+       <script src="js/bootstrap.min.js"></script>
+       <!-- Appear JavaScript -->
+       <script src="js/jquery.appear.js"></script>
+       <!-- Countdown JavaScript -->
+       <script src="js/countdown.min.js"></script>
+       <!-- Counterup JavaScript -->
+       <script src="js/waypoints.min.js"></script>
+       <script src="js/jquery.counterup.min.js"></script>
+       <!-- Wow JavaScript -->
+       <script src="js/wow.min.js"></script>
+       <!-- Apexcharts JavaScript -->
+       <script src="js/apexcharts.js"></script>
+       <!-- lottie JavaScript -->
+       <script src="js/lottie.js"></script>
+       <!-- Slick JavaScript -->
+       <script src="js/slick.min.js"></script>
+       <!-- Select2 JavaScript -->
+       <script src="js/select2.min.js"></script>
+       <!-- Owl Carousel JavaScript -->
+       <script src="js/owl.carousel.min.js"></script>
+       <!-- Magnific Popup JavaScript -->
+       <script src="js/jquery.magnific-popup.min.js"></script>
+       <!-- Smooth Scrollbar JavaScript -->
+       <script src="js/smooth-scrollbar.js"></script>
+       <!-- Chart Custom JavaScript -->
+       <script src="js/chart-custom.js"></script>
+       <!-- Date Handling -->
+       <script src="js/dayjs/dayjs.min.js"></script>
+	   <!-- Custom JavaScript -->
+       <script src="js/custom.js"></script>
+	   <!-- API Call URLs -->
+       <script src="/Scripts/HDS_Config.js"></script>
+<script>
+	$(document).ready(function () {
+        var url = localStorage.getItem("apiGetInvoiceByInvoiceNo");
+		var obj = {
+			InvoiceNumber: 23
+		}
+			   
+		$.ajax
+		({
+		   type: "GET",
+		   url: url,
+		   data: obj,
+		   contentType: "application/json; charset=utf-8",
+		   success: getInvoiceByInvoiceNumberSuccess,
+           error: getInvoiceByInvoiceNumberError
+		})
+	});
+
+	function getInvoiceByInvoiceNumberSuccess(Invoice) {
+		$("label#InvoiceNumber").text(Invoice.invoiceNumber);
+		$("label#InvoiceAmount").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
+		$("label#InvoiceDate").text(FormatDate(Invoice.Date));
+		$("label#DueDate").text(FormatDate(Invoice.dueDate));
+		$("label#PurchaseOrderNo").text("{P. O. No}");
+
+		$("label#itemno").text("1");
+        $("label#itemdesc").text(Invoice.itemName);
+        $("label#qty").text(Invoice.quantity);
+        $("label#rate").text(FormatTwoDecimals(Invoice.itemPrice));
+        $("label#amount").text(FormatTwoDecimals(Invoice.itemPrice * Invoice.quantity));
+        $("label#clientname").text(Invoice.customerName);
+        $("label#total").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
+        $("label#balancedue").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
+
+		$("label#clientname2").text(Invoice.customerName);
+		$("label#contactname").text("{contact name}");
+        $("label#invoicedate2").text(FormatDate(Invoice.Date));
+        $("label#duedate2").text(FormatDate(Invoice.dueDate));
+		$("label#balancedue2").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
+        $("div#notesdata").text(Invoice.notes);
+
+	}
+
+	function getInvoiceByInvoiceNumberError(xhr, status, error) {
+		alert('error');
+	}
+
+    function FormatTwoDecimals(values) {
+		var floatValue = parseFloat(values);
+		var fixed = floatValue.toFixed(2);
+		var formatted = fixed.toLocaleString('en-US');
+		return formatted;
+	}
+
+	function FormatDate(date) {
+		return dayjs(date).format('D MMM YYYY');
+	}
+
+</script>
+    <style>
+		.hdsblue {
+			color: #262672;
+		}
+		body {
+			background-color: #d4d4d7;
+			display: flex;
+			justify-content: center;
+			font-family: 'Open Sans';
+			font-size: 14px;
+			color: black;
+			margin-top: 0;
+		}
+		
+
+		html, body {
+			height: 100%;
+		}
+		
+		#printerpage {
+			min-width: 8.5in;
+			max-width: 8.5in;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			min-height: 15in;
+			max-height: 15in;
+			border: solid 1px black;
+			box-shadow: 5px 10px #888888;
+		}
+		
+		@media print {
+			body {
+				background-color: white;
+			}
+			
+			#printerpage {
+				border: 0;
+				box-shadow: 0;
+			}
+		}
+				
+		
+		#mainbody {
+			min-width: 7.45in;
+			max-width: 7.45in;
+			background-color: white;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			max-height: 9.8in;
+			min-height: 9.8in;
+		}
+		
+		div#row1 {
+			display: flex;
+			justify-content: space-between;
+			min-width: 100%;
+			background-color: white;
+			flex-shrink: 1;
+			max-height: 2.1in;
+		}
+		
+		div#logo {
+			margin: 0;
+			padding: 0;
+			width: 1.6in;
+			background-color: white;
+			max-height: 2in;
+		}
+	
+		div#logo image {
+			width: 100%;
+		}
+		
+		div#logocaption {
+			font-size: 11px;
+			font-weight: bold;
+			text-align: center;
+		}
+		
+		div#invoiceblock {
+			background-color: white;
+			flex-grow: 2;
+			text-align: right;
+			max-height: 2in;
+		}
+
+		#invoicetitle {
+			color: #262672;
+			font-size: 36px;
+		}
+
+		
+		div#row2 {
+			display: flex;
+			width: 100%;
+			background-color: white;
+			max-height: 1.4in;
+			min-height: 1.4in;
+			align-items: flex-end;
+			margin-bottom: 25px;
+			justify-content: space-between;
+		}
+
+		div#invoicedate {
+			text-align: right;
+		}
+		
+		div#balancedue {
+			padding-top: 0.25in;
+			background-color: white;
+		}
+		
+		div.clientname {
+			font-weight: bold;
+		}
+		
+		div#invoicedate table td {
+			font-style: normal;
+			padding-bottom: 10px;
+		}
+		
+		div#invoicetable {
+			min-height: 2in;
+			background-color: white;
+		}
+		
+		div#invoicetable, div#invoicetable table {
+			width: 100%;
+			border-spacing: 1px;
+		}
+		
+		div#invoicetable th{
+			background-color: #262672;
+			color: white;
+			height: .3in;
+			font-weight: normal;
+		}
+
+		div#invoicetable table td {
+			font-size: 13px;
+		}
+
+		div#invoicetable table th {
+			padding: 5px 10px;
+		}
+
+		div#invoicetable table td {
+			padding: 15px 10px;
+		}		
+
+		th.no, td.no {
+			text-align: center;
+		}
+
+		th.item, td.item {
+			text-align: left;
+		}
+
+		th.qty, td.qty, th.rate, td.rate {
+			text-align: right;
+		}
+
+		th.amount, td.amount
+		{
+			text-align: right;
+			padding-right: 7px;
+		}
+		
+		td.totalprompt, td.balancedueprompt {
+			text-align: right;
+			padding-right: 50px;
+			font-weight: bold;
+		}
+		
+		td.total, td.balancedue {
+			text-align: right;
+			padding: 5px 10px 5px 10px;
+		}
+		
+		td.balancedueprompt, td.balancedue {
+			background-color: #c7c7c7;
+		}
+		
+		.width60 {width: 60%;}
+		.width50 {width: 50%;}
+		.width30 {width: 30%;}
+		.width20 {width: 20%;}		
+		.width15 {width: 15%;}		
+		.width10 {width: 10%;}
+		.width5 {width: 5%;}
+		
+		div#notes {
+			width: 100%;
+			min-height: 1.825in;
+			border-bottom: 3px dotted black;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: space-around;
+		}
+		
+		div#notestitle {
+			font-size: 18px;
+			font-weight: bold;
+			width: 100%;
+		}
+
+        div#notesdata {
+            max-height: .5in;
+			min-height: .5in;
+			font-size: 12px;
+        }
+
+		div#notestext {
+			font-size: 12px;
+			width: 100%;
+		}
+		
+		div#paymentstub {
+			position: relative;
+			top:.5in;
+			left:1in;
+			background-color: white;
+			height: 1.5in;
+			max-width:3.125in;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: space-between;
+		}
+		
+		div#paymentstubtitle {
+			font-size: 24px;
+		}
+		
+		div#paymentstubaddress {
+			font-size: 14px;
+		}
+		
+		div#paymentdetails {
+			min-width: 3.25in;
+			max-width: 3.25in;
+			background-color: white;
+			padding-top: .2in;
+		}
+		
+		div#paymentdetailscontact {
+			width: 100%;
+			border-bottom: 1px dashed black;
+			margin-bottom: .2in;
+		}
+		
+		div#paymentdetailsinvoice {
+			width: 100%;
+		}
+
+        div#paymentdetailsinvoice table{
+            width: 100%;
+        }
+
+		.pdilabel {
+			width: 85px;
+		}
+		
+		.pdidata {
+			width: 45%;
+			padding-right: 10px;
+		}
+		
+		div#paymentamount {
+			width: 75%;
+			border: 2px solid #c7c7c7;
+			display: flex;
+		}
+		
+		div#paymentamount div#label {
+			width: 40%;
+			font-size: 12px;
+			background-color: #e8e8e8;
+			text-align: right;
+			padding-right: 5px;
+		}
+
+		div#paymentamount div#amount {
+			width: 60%;
+			background-color: white;
+		}
+		
+		div#paymentoptions {
+			margin-top: 2in;
+			padding-top: .5in;
+			width: 100%;
+			display: flex;
+		}
+		
+		div#paymentoptions img {
+			margin-left: 25px;
+			background-color: #e8e8e8;
+			border: 1px solid #e8e8e8;
+			padding: 5px 25px;
+			border-radius: 5px;
+		}
+		
+		div#paymentoptions img:hover {
+			margin-left: 25px;
+			background-color: LightYellow;
+			padding: 5px 25px;
+			border: 1px solid #e8e8e8;
+			border-radius: 5px;
+		}
+		
+		div#terms {
+			width: 100%;
+			padding-top: .5in;
+			font-size: 11px;
+		}
+
+        label.invoicedate {
+            font-style: normal;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            font-family: 'Open Sans';
+            font-size: 14px;
+			margin-bottom: -10px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+		
+		.sectionlabel {
+			font-weight: normal;
+			font-size: 16px;
+		}
+
+        .darkblue {
+            color: #262672;
+        }
+	</style>
+</body>
+</html>
