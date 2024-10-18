@@ -31,12 +31,10 @@
 				<div id="logocaption">Henderson Data Solutions</div>
 			</div>
 			<div id="invoiceblock">
-				<span id="invoicetitle" class="hdsblue">Invoice</span>
-				<br />
-				<span class="hdsblue">#<label id="InvoiceNumber" /></span>
-				<br />
+				<div id="invoicetitle" class="hdsblue">Invoice</div>
+				<div class="invoicenumber hdsblue">#<label class="hdsblue" id="InvoiceNumber" /></div>
 				<div id="balancedue">Balance Due</div>
-				<span>$<label id="InvoiceAmount" /></span>
+				<div class="InvoiceAmount">$<label id="InvoiceAmount" /></div>
 				
 			</div>
 		</div>
@@ -100,7 +98,7 @@
 		
 		<div id="notes">
 			<div class="sectionlabel darkblue">Notes</div>
-			<div class="notestext" id="notesdata">notes</div>
+			<div class="notestext" id="notesdata">&nbsp;</div>
 
 			<div>Please mail any checks to our Billing Address:<br />
 			3200 Steck Avenue, #245<br />
@@ -191,7 +189,7 @@
 	$(document).ready(function () {
         var url = localStorage.getItem("apiGetInvoiceByInvoiceNo");
 		var obj = {
-			InvoiceNumber: 23
+			InvoiceNumber: 10989
 		}
 			   
 		$.ajax
@@ -332,24 +330,40 @@
 			flex-grow: 2;
 			text-align: right;
 			max-height: 2in;
+			line-height: 1;
 		}
 
 		#invoicetitle {
 			color: #262672;
-			font-size: 36px;
+			font-size: 45px;
+			font-weight: bold;
 		}
 
-		
-		div#row2 {
-			display: flex;
-			width: 100%;
-			background-color: white;
-			max-height: 1.4in;
-			min-height: 1.4in;
-			align-items: flex-end;
-			margin-bottom: 25px;
-			justify-content: space-between;
-		}
+        .invoicenumber {
+            color: #262672;
+            font-size: 24px;
+            font-weight: 900;
+			font-stretch: expanded;
+        }
+
+        .InvoiceAmount {
+			font-size: x-large;
+			font-weight:900;
+			font-stretch: extra-expanded;
+			transform: scale(1, .8);
+			margin-top: 5px;
+        }
+
+        div#row2 {
+            display: flex;
+            width: 100%;
+            background-color: white;
+            max-height: 1.4in;
+            min-height: 1.4in;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            justify-content: space-between;
+        }
 
 		div#invoicedate {
 			text-align: right;
@@ -358,6 +372,8 @@
 		div#balancedue {
 			padding-top: 0.25in;
 			background-color: white;
+			color: black;
+			font-weight: bold;
 		}
 		
 		div.clientname {
@@ -456,13 +472,16 @@
 
         div#notesdata {
             max-height: .5in;
-			min-height: .5in;
-			font-size: 12px;
+            min-height: .5in;
+            font-size: 12px;
+            width: 100%;
         }
 
 		div#notestext {
 			font-size: 12px;
 			width: 100%;
+			min-height: .5in;
+			max-height: .5in;
 		}
 		
 		div#paymentstub {
