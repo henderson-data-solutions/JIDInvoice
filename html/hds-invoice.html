@@ -65,7 +65,7 @@
 		</div>
 		
 		<div id="invoicetable">
-			<table>
+			<table id="invoicetable">
 				<tr>
 					<th class="no width5">#</th>
 					<th class="item width60">Item & Description</th>
@@ -186,12 +186,18 @@
 	   <!-- API Call URLs -->
        <script src="/Scripts/HDS_Config.js"></script>
 <script>
+	var firstiteration = true;
+	var invoicetotal = 0.0;
+	var amount = 0.0;
+	var rowCount = 1;
+
 	$(document).ready(function () {
         var url = localStorage.getItem("apiGetInvoiceByInvoiceNo");
+		var invoice = GetURLParameter('invoice');
 		var obj = {
-			InvoiceNumber: 10989
+			InvoiceNumber: invoice
 		}
-			   
+
 		$.ajax
 		({
 		   type: "GET",
@@ -204,28 +210,51 @@
 	});
 
 	function getInvoiceByInvoiceNumberSuccess(Invoice) {
-		$("label#InvoiceNumber").text(Invoice.invoiceNumber);
-		$("label#InvoiceAmount").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
-		$("label#InvoiceDate").text(FormatDate(Invoice.Date));
-		$("label#DueDate").text(FormatDate(Invoice.dueDate));
-		$("label#PurchaseOrderNo").text("{P. O. No}");
 
-		$("label#itemno").text("1");
-        $("label#itemdesc").text(Invoice.itemName);
-        $("label#qty").text(Invoice.quantity);
-        $("label#rate").text(FormatTwoDecimals(Invoice.itemPrice));
-        $("label#amount").text(FormatTwoDecimals(Invoice.itemPrice * Invoice.quantity));
-        $("label#clientname").text(Invoice.customerName);
-        $("label#total").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
-        $("label#balancedue").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
+		$.each(Invoice, iterate)
 
-		$("label#clientname2").text(Invoice.customerName);
-		$("label#contactname").text("{contact name}");
-        $("label#invoicedate2").text(FormatDate(Invoice.Date));
-        $("label#duedate2").text(FormatDate(Invoice.dueDate));
-		$("label#balancedue2").text(FormatTwoDecimals(Invoice.quantity * Invoice.itemPrice));
-        $("div#notesdata").text(Invoice.notes);
+	}
 
+	function iterate(key, invoice) {
+		debugger;
+		if (firstiteration) {
+            $("label#InvoiceNumber").text(invoice.invoiceNumber);
+            $("label#InvoiceDate").text(FormatDate(invoice.Date));
+            $("label#DueDate").text(FormatDate(invoice.dueDate));
+            $("label#PurchaseOrderNo").text("{P. O. No}");
+
+
+            $("label#clientname2").text(invoice.customerName);
+            $("label#contactname").text("{contact name}");
+            $("label#invoicedate2").text(FormatDate(invoice.Date));
+            $("label#duedate2").text(FormatDate(invoice.dueDate));
+			$("div#notesdata").text(invoice.notes);
+			firstiteration = false;
+		} 
+
+        amount = (invoice.quantity * 1) * (invoice.itemPrice * 1);
+        invoicetotal += (amount * 1);
+		debugger;
+		var table = document.getElementById('invoicetable').getElementsByTagName('tbody')[0];
+		var newRow = table.insertRow()
+		appendCell(newRow, rowCount++);
+        appendCell(newRow, invoice.itemName);
+        appendCell(newRow, invoice.quantity);
+        appendCell(newRow, FormatTwoDecimals(invoice.itemPrice));
+        appendCell(newRow, FormatTwoDecimals(amount));
+        appendCell(newRow, invoice.customerName);
+        appendCell(newRow, FormatTwoDecimals(amount));
+
+		$("label#balancedue").text(FormatTwoDecimals(invoicetotal));
+        $("label#InvoiceAmount").text(FormatTwoDecimals(amount));
+        $("label#balancedue2").text(FormatTwoDecimals(amount));
+
+		}
+
+	function appendCell(row, text) {
+		var newCell = row.insertCell();
+		var newText = document.createTextNode(text);
+		newCell.appendChild(newText);
 	}
 
 	function getInvoiceByInvoiceNumberError(xhr, status, error) {
@@ -243,6 +272,16 @@
 		return dayjs(date).format('D MMM YYYY');
 	}
 
+    function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    }
 </script>
     <style>
 		.hdsblue {
