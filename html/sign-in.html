@@ -150,18 +150,20 @@
                //get the username and password
                var email = $('input#exampleInputEmail1').val();
                var password = $('input#exampleInputPassword1').val();
-               authenticate(email, password);
+               var remember = $('input#customCheck1').prop("checked");
+               authenticate(email, password, remember);
 
                //window.location.href = "pages-invoice.html"; // Replace with your target URL
 
            }
 
-           function authenticate(username, password) {
+           function authenticate(username, password, remember) {
                var url = localStorage.getItem("apiAuthenticate");
                var obj = {
                    Url: localStorage.getItem("RedirUri"),
                    Username: username,
-                   Password: password
+                   Password: password,
+                   Remember: remember
                }
 
                $.ajax
