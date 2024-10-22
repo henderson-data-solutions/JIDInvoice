@@ -42,7 +42,7 @@
 		<div id="row2">
 			<div id="billto">
 				<div class="sectionlabel darkblue">Bill To</div>
-				<div class="clientname"><label id="clientname" /></div>
+				<div class="clientname" id="clientname"></div>
 			</div>
 			
 			<div id="invoicedate">
@@ -73,19 +73,12 @@
 					<th class="rate width10">Rate</th>
 					<th class="amount width15">Amount</th>
 				</tr>
-				<tr>
-					<td class="no width5"><label id="itemno" /></td>
-					<td class="item width60"><label id="itemdesc" /></td>
-					<td class="qty width10"><label id="qty" /></td>
-					<td class="rate width10">$<label id="rate" /></td>
-					<td class="amount width15">$<label id="amount" /></td>
-				</tr>
 			</table>
 			<table>
 				<tr>
 					<td class="width50">&nbsp;</td>
 					<td class="totalprompt width30">Total</td>
-					<td class="total width20">$<label id="total" />"</td>
+					<td class="total width20">$<label id="total" /></td>
 				</tr>
 				<tr>
 					<td class="width50">&nbsp;</td>
@@ -107,7 +100,7 @@
 		
 		<div id="paymentdetails">
 			<div class="sectionlabel darkblue">From</div>
-			<div class="clientname"><label id="clientname2" /></div>
+			<div class="clientname" id="clientname2"></div>
 			<div id="paymentdetailscontact"><label id="contactname" /></div>
 			<div id="paymentdetailsinvoice">
 				<table>
@@ -200,12 +193,14 @@
 
 		$.ajax
 		({
-		   type: "GET",
-		   url: url,
-		   data: obj,
-		   contentType: "application/json; charset=utf-8",
-		   success: getInvoiceByInvoiceNumberSuccess,
-           error: getInvoiceByInvoiceNumberError
+			type: "GET",
+            // Fetch the stored token from localStorage and set in the header
+            headers: { "Authorization": "Bearer " + localStorage.getItem('access_token') },
+			url: url,
+			data: obj,
+			contentType: "application/json; charset=utf-8",
+			success: getInvoiceByInvoiceNumberSuccess,
+			error: getInvoiceByInvoiceNumberError
 		})
 	});
 
@@ -216,15 +211,14 @@
 	}
 
 	function iterate(key, invoice) {
-		debugger;
 		if (firstiteration) {
             $("label#InvoiceNumber").text(invoice.invoiceNumber);
             $("label#InvoiceDate").text(FormatDate(invoice.Date));
             $("label#DueDate").text(FormatDate(invoice.dueDate));
             $("label#PurchaseOrderNo").text("{P. O. No}");
 
-
-            $("label#clientname2").text(invoice.customerName);
+            $("div#clientname").text(invoice.customerName);
+            $("div#clientname2").text(invoice.customerName);
             $("label#contactname").text("{contact name}");
             $("label#invoicedate2").text(FormatDate(invoice.Date));
             $("label#duedate2").text(FormatDate(invoice.dueDate));
@@ -234,31 +228,32 @@
 
         amount = (invoice.quantity * 1) * (invoice.itemPrice * 1);
         invoicetotal += (amount * 1);
-		debugger;
+
 		var table = document.getElementById('invoicetable').getElementsByTagName('tbody')[0];
 		var newRow = table.insertRow()
-		appendCell(newRow, rowCount++);
-        appendCell(newRow, invoice.itemName);
-        appendCell(newRow, invoice.quantity);
-        appendCell(newRow, FormatTwoDecimals(invoice.itemPrice));
-        appendCell(newRow, FormatTwoDecimals(amount));
-        appendCell(newRow, invoice.customerName);
-        appendCell(newRow, FormatTwoDecimals(amount));
+		appendCell(newRow, rowCount++, "left");
+        appendCell(newRow, invoice.itemName, "left");
+        appendCell(newRow, invoice.quantity, "right");
+        appendCell(newRow, "$" + FormatTwoDecimals(invoice.itemPrice), "right");
+        appendCell(newRow, "$" + FormatTwoDecimals(amount), "right");
 
 		$("label#balancedue").text(FormatTwoDecimals(invoicetotal));
-        $("label#InvoiceAmount").text(FormatTwoDecimals(amount));
-        $("label#balancedue2").text(FormatTwoDecimals(amount));
-
+        $("label#InvoiceAmount").text(FormatTwoDecimals(invoicetotal));
+        $("label#balancedue2").text(FormatTwoDecimals(invoicetotal));
+        $("label#total").text(FormatTwoDecimals(invoicetotal));
 		}
 
-	function appendCell(row, text) {
+	function appendCell(row, text, classNames) {
 		var newCell = row.insertCell();
+		newCell.classList.add(classNames);
 		var newText = document.createTextNode(text);
 		newCell.appendChild(newText);
 	}
 
 	function getInvoiceByInvoiceNumberError(xhr, status, error) {
-		alert('error');
+		if (xhr.status == 401) {
+			location.href = "/html/sign-in.html";
+		}
 	}
 
     function FormatTwoDecimals(values) {
@@ -450,7 +445,7 @@
 		}
 
 		div#invoicetable table td {
-			padding: 15px 10px;
+			padding: 5px 10px;
 		}		
 
 		th.no, td.no {
@@ -642,6 +637,14 @@
         .darkblue {
             color: #262672;
         }
+
+		.right {
+			text-align: right;
+		}
+
+		.left {
+			text-align: left;
+		}
 	</style>
 </body>
 </html>
