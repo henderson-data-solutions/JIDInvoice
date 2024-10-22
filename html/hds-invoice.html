@@ -241,7 +241,7 @@
         $("label#InvoiceAmount").text(FormatTwoDecimals(invoicetotal));
         $("label#balancedue2").text(FormatTwoDecimals(invoicetotal));
         $("label#total").text(FormatTwoDecimals(invoicetotal));
-		}
+	}
 
 	function appendCell(row, text, classNames) {
 		var newCell = row.insertCell();
@@ -256,10 +256,11 @@
 		}
 	}
 
-    function FormatTwoDecimals(values) {
+	function FormatTwoDecimals(values) {
+		debugger;
 		var floatValue = parseFloat(values);
 		var fixed = floatValue.toFixed(2);
-		var formatted = fixed.toLocaleString('en-US');
+		var formatted = (fixed*1).toLocaleString('en-US');
 		return formatted;
 	}
 
