@@ -1240,6 +1240,7 @@
     <Content Include="html\profile-images.html" />
     <Content Include="html\profile-video.html" />
     <Content Include="html\profile.html" />
+    <Content Include="html\hds-default.html" />
     <Content Include="html\sign-up.html" />
     <Content Include="html\two-factor.html" />
     <Content Include="html\sign-in.html" />
