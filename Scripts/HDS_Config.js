@@ -1,10 +1,10 @@
-﻿localStorage.setItem("apiAuthenticate", "https://localhost:7002/api/authenticate");
-localStorage.setItem("apiTwoFactorVerify", "https://localhost:7002/api/TwoFactorVerify");
-localStorage.setItem("apiInvoicesGetCustomers", "https://localhost:7002/Invoices/GetCustomers");
-localStorage.setItem("apiGetInvoiceByInvoiceNo", "https://localhost:7002/Invoices/GetInvoiceByInvoiceNo");
-localStorage.setItem("apiCheckUserAuthentication", "https://localhost:7002/Users/CheckAuthenticationStatus");
+﻿localStorage.setItem("apiAuthenticate", "https://uat1.hendersondatasolutions.com:8077/api/authentication/Authenticate");
+localStorage.setItem("apiTwoFactorVerify", "https://uat1.hendersondatasolutions.com:8077/api/authentication/TwoFactorVerify");
+localStorage.setItem("apiInvoicesGetCustomers", "https://uat1.hendersondatasolutions.com:8077/Invoices/GetCustomers");
+localStorage.setItem("apiGetInvoiceByInvoiceNo", "https://uat1.hendersondatasolutions.com:8077/Invoices/GetInvoiceByInvoiceNo");
+localStorage.setItem("apiCheckUserAuthentication", "https://uat1.hendersondatasolutions.com:8077/Users/CheckAuthenticationStatus");
 
-localStorage.setItem("RedirUri", "https://localhost:7002/api/Authresponse");
-localStorage.setItem("apiRegisterUser", "https://localhost:7002/Users/Register");
+localStorage.setItem("RedirUri", "https://uat1.hendersondatasolutions.com:8077/api/Authresponse");
+localStorage.setItem("apiRegisterUser", "https://uat1.hendersondatasolutions.com:8077/Users/Register");
 
 localStorage.setItem("apiSendEmail", "https://uat1.hendersondatasolutions.com:8093/api/PostMessage");
