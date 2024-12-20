@@ -58,8 +58,19 @@
                        
                     </div>
                     <div class="col-md-6 bg-white  pt-5" >
-                        <div class="sign-in-from" >
+                        <div class="sign-in-from">
                             <h1 class="mb-0">Two Factor</h1>
+                            <div style="margin-bottom: 50px;">
+                                Send verification code to:<br />
+                                <input type="radio" name="method2FA" value="email" />&nbsp;<label id="email_label" for="email"></label><br />
+                                <input type="radio" name="method2FA" value="sms" />&nbsp;<label id="phone_label" for="sms"></label><br />
+
+                                <button type="button" 
+                                        id="Send2FA" 
+                                        class="btn btn-primary float-right"
+                                        onclick="request2FA()">Send verification code</button>
+                            </div>
+                            <hr />
                             <p>Please enter the two factor authentication code.</p>
                             <form class="mt-4">
                                 <div class="form-group">
@@ -115,9 +126,13 @@
 
             $(document).ready(function(){
                 $('#btnSubmit').click(btnSubmit_Click);
+
+                var username_partial = localStorage.getItem('username_partial');
+                var phone_partial = localStorage.getItem('phone_partial');
+                $("label#email_label").text("Email: " + username_partial);
+                $("label#phone_label").text("SMS: " + phone_partial);
             });
          
-
            function btnSubmit_Click() {
                var twofactorlookup = localStorage.getItem('twofactorlookup');
                var twofactorcode = $("input#twofactor").val();
@@ -127,6 +142,39 @@
                twofactorverify(twofactorlookup, twofactorcode);
 
                //window.location.href = "pages-invoice.html"; 
+
+           }
+
+           function request2FA() {
+               var url = localStorage.getItem("apiRequestTwoFactorCode")
+               var lookup = localStorage.getItem("twofactorlookup");
+
+               var method = $("input[name='method2FA']:checked").val();
+
+               var obj = {
+                   TwoFactorLookup: lookup,
+                   Method: method
+               }
+
+               $.ajax
+                   ({
+                       type: "POST",
+                       //the url where you want to sent the userName and password to
+                       url: url,
+                       dataType: 'json',
+                       data: JSON.stringify(obj),
+                       contentType: "application/json; charset=utf-8",
+                       //json object to sent to the authentication url
+                       success: request2FASuccess,
+                       error: request2FAError
+                   })
+           }
+
+           function request2FASuccess(data) {
+
+           }
+
+           function request2FAError(data) {
 
            }
 

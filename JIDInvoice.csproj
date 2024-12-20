@@ -189,6 +189,7 @@
     <Content Include="html\fullcalendar\timegrid\package.json" />
     <Content Include="html\fullcalendar\timegrid\README.md" />
     <Content Include="html\hds-invoice.html" />
+    <Content Include="html\hds-invoicelist.html" />
     <Content Include="html\html\fonts\dripicons-v2.eot" />
     <Content Include="html\html\fonts\dripicons-v2.ttf" />
     <Content Include="html\html\fonts\dripicons-v2.woff" />
@@ -1285,6 +1286,7 @@
     <Content Include="html\without-sidebar.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\HDS_Config - uat1.js" />
     <Content Include="Scripts\HDS_Config.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

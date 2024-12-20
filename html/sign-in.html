@@ -64,12 +64,12 @@
                            <form class="mt-4">
                                <div class="form-group">
                                    <label for="exampleInputEmail1">Email address</label>
-                                   <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" value="">
+                                   <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" value="ldew@hendersondatasolutions.com">
                                </div>
                                <div class="form-group">
                                    <label for="exampleInputPassword1">Password</label>
                                    <a class="float-right" id="forgotPass">Forgot password?</a>
-                                   <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password" value="">
+                                   <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password" value="testPassword1&">
                                </div>
                                <div class="d-inline-block w-100">
                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
@@ -205,6 +205,8 @@
                if (HDSAuthResult.status == 200) {
                    twofactorlookup = HDSAuthResult.twofactorlookup;
                    localStorage.setItem('twofactorlookup', twofactorlookup);
+                   localStorage.setItem('username_partial', obfuscateEmail(HDSAuthResult.username));
+                   localStorage.setItem('phone_partial', obfuscatePhone(HDSAuthResult.userphone));
                    window.location.href = "./two-factor.html";
                }
                else {
@@ -216,6 +218,21 @@
                alert("An error was encountered trying authenticate the specified user. Please try again.");
            }
 
+           function obfuscateEmail(username) {
+               var front = username.substring(0, 5);
+               var back = username.substring(username.length - 10);
+               return front + "*************" + back;
+           }
+
+           function obfuscatePhone(userphone) {
+               var front = userphone.substring(0, userphone.length - 5);
+               var front2 = front.replace(/[0-9]/g, "*");
+
+               var back = userphone.substring(userphone.length - 5);
+
+               return front2 + back;
+
+           }
        </script>
    </body>
 </html>
