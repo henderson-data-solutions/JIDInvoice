@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="html\hds-invoicelist.html" />
     <Content Include="html\fonts\dripicons-v2.eot" />
     <Content Include="html\fonts\dripicons-v2.ttf" />
     <Content Include="html\fonts\dripicons-v2.woff" />
@@ -189,7 +190,6 @@
     <Content Include="html\fullcalendar\timegrid\package.json" />
     <Content Include="html\fullcalendar\timegrid\README.md" />
     <Content Include="html\hds-invoice.html" />
-    <Content Include="html\hds-invoicelist.html" />
     <Content Include="html\html\fonts\dripicons-v2.eot" />
     <Content Include="html\html\fonts\dripicons-v2.ttf" />
     <Content Include="html\html\fonts\dripicons-v2.woff" />
